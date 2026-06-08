@@ -1,0 +1,53 @@
+{
+  "name": "@pathrule/patterns",
+  "version": "0.0.1",
+  "description": "Curated, path-scoped knowledge packages for AI coding agents: ready-to-use bundles of memories, rules, and skills.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "pathrule",
+    "ai-coding",
+    "claude-code",
+    "cursor",
+    "codex",
+    "github-copilot",
+    "windsurf",
+    "mcp",
+    "context-engineering",
+    "llm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pathrule/patterns.git"
+  },
+  "homepage": "https://pathrule.io/patterns",
+  "bugs": {
+    "url": "https://github.com/pathrule/patterns/issues"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}
