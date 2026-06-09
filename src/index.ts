@@ -2,17 +2,71 @@ export * from "./types.js";
 
 import type { Pattern, PatternCategory, PatternContentKind } from "./types.js";
 import { patternToken } from "./types.js";
+import { astro } from "./patterns/astro.js";
+import { expoReactNative } from "./patterns/expo-react-native.js";
 import { nextjsAppRouter } from "./patterns/nextjs-app-router.js";
+import { nuxt } from "./patterns/nuxt.js";
+import { reactRouter } from "./patterns/react-router.js";
+import { sveltekit } from "./patterns/sveltekit.js";
+import { formsRhfZod } from "./patterns/forms-rhf-zod.js";
+import { reactTypescript } from "./patterns/react-typescript.js";
+import { shadcnUi } from "./patterns/shadcn-ui.js";
+import { tailwindCss } from "./patterns/tailwind-css.js";
+import { tanstackQuery } from "./patterns/tanstack-query.js";
+import { webAccessibility } from "./patterns/web-accessibility.js";
+import { authSessionsJwtOauth } from "./patterns/auth-sessions-jwt-oauth.js";
+import { backgroundJobsQueues } from "./patterns/background-jobs-queues.js";
+import { drizzleOrm } from "./patterns/drizzle-orm.js";
+import { nodeTsApiHono } from "./patterns/node-ts-api-hono.js";
+import { postgresSchema } from "./patterns/postgres-schema.js";
+import { restApiDesign } from "./patterns/rest-api-design.js";
 import { supabaseRls } from "./patterns/supabase-rls.js";
 import { stripeBilling } from "./patterns/stripe-billing.js";
-import { reactTypescript } from "./patterns/react-typescript.js";
+import { subscriptionsUsageBilling } from "./patterns/subscriptions-usage-billing.js";
+import { dockerContainers } from "./patterns/docker-containers.js";
+import { githubActionsCicd } from "./patterns/github-actions-cicd.js";
+import { observability } from "./patterns/observability.js";
+import { secretsEnvManagement } from "./patterns/secrets-env-management.js";
+import { terraformIac } from "./patterns/terraform-iac.js";
+import { vercelDeploy } from "./patterns/vercel-deploy.js";
+import { codeReview } from "./patterns/code-review.js";
+import { gitConventionalCommits } from "./patterns/git-conventional-commits.js";
+import { monorepoPnpmTurborepo } from "./patterns/monorepo-pnpm-turborepo.js";
+import { testingVitestPlaywright } from "./patterns/testing-vitest-playwright.js";
 
-/** The catalog. Add a new pattern here; array order is the default catalog order. */
+/** The catalog. Generated; order is category-grouped. */
 export const PATTERNS: Pattern[] = [
+  astro,
+  expoReactNative,
   nextjsAppRouter,
+  nuxt,
+  reactRouter,
+  sveltekit,
+  formsRhfZod,
+  reactTypescript,
+  shadcnUi,
+  tailwindCss,
+  tanstackQuery,
+  webAccessibility,
+  authSessionsJwtOauth,
+  backgroundJobsQueues,
+  drizzleOrm,
+  nodeTsApiHono,
+  postgresSchema,
+  restApiDesign,
   supabaseRls,
   stripeBilling,
-  reactTypescript,
+  subscriptionsUsageBilling,
+  dockerContainers,
+  githubActionsCicd,
+  observability,
+  secretsEnvManagement,
+  terraformIac,
+  vercelDeploy,
+  codeReview,
+  gitConventionalCommits,
+  monorepoPnpmTurborepo,
+  testingVitestPlaywright,
 ];
 
 export function getAllPatterns(): Pattern[] {
@@ -33,12 +87,10 @@ export function countByKind(p: Pattern): Record<PatternContentKind, number> {
   return counts;
 }
 
-/** Deduped, sorted target paths for the card and detail summary. */
 export function targetPaths(p: Pattern): string[] {
   return [...new Set(p.pieces.map((x) => x.nodePath))].sort();
 }
 
-/** "12 Rules • 7 Memories • 4 Skills" (omits zero kinds). */
 export function bundleSummary(p: Pattern): string {
   const c = countByKind(p);
   const parts: string[] = [];
@@ -48,7 +100,6 @@ export function bundleSummary(p: Pattern): string {
   return parts.join(" • ");
 }
 
-/** Plain-text bundle for the "Manual copy" action and the raw markdown view. */
 export function serializePatternBundle(p: Pattern): string {
   const blocks = p.pieces.map((piece) => {
     const head = `### [${piece.kind.toUpperCase()}] ${piece.title}  (path: ${piece.nodePath})`;
