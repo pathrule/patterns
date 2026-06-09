@@ -53,22 +53,38 @@ export const authSessionsJwtOauth: Pattern = {
       "kind": "rule",
       "nodePath": "/src/auth",
       "title": "Never store auth tokens in localStorage",
-      "summary": "Session and refresh tokens must live in httpOnly cookies, never web storage.",
-      "body": "Any token that authenticates a request must be set as an httpOnly cookie so JavaScript cannot read it and XSS cannot exfiltrate it.\n\n- Set the session or refresh cookie with `httpOnly`, `secure`, `sameSite: 'lax'` (or `strict` for high-value actions), and the `__Host-` name prefix.\n- Never write access tokens, refresh tokens, or session ids to `localStorage`, `sessionStorage`, or non-httpOnly cookies.\n- Keep access tokens short lived (15 to 60 minutes) and refresh tokens long lived (7 to 14 days) so a stolen access token expires fast.\n- If a short-lived access token must reach the browser for API calls, hold it in memory only, never in persistent storage."
+      "summary": "Session and refresh tokens must live in httpOnly cookies; never in web storage or non-httpOnly cookies.",
+      "body": "Any token that authenticates a request must be set as an httpOnly cookie so JavaScript cannot read it and XSS cannot exfiltrate it.\n\n- Set the session or refresh cookie with `httpOnly`, `secure`, `sameSite: 'lax'` (or `strict` for high-value actions), and the `__Host-` name prefix.\n- Never write access tokens, refresh tokens, or session IDs to `localStorage`, `sessionStorage`, or non-httpOnly cookies.\n- Keep access tokens short-lived (15 to 60 minutes) and refresh tokens long-lived (7 to 14 days) so a stolen access token expires quickly.\n- If a short-lived access token must reach the browser for direct API calls, hold it in memory only — never in persistent storage.",
+      "scopeType": "folder",
+      "priority": "high",
+      "enforcement": "strict"
+    },
+    {
+      "kind": "rule",
+      "nodePath": "/src/auth",
+      "title": "Default to server sessions; use JWT only when statelessness is required",
+      "summary": "Opaque server sessions are revocable and carry no payload to leak; choose JWT only when cross-service stateless verification is genuinely needed.",
+      "body": "Choosing the wrong token model is an architectural mistake that is expensive to reverse. The safer default is always an opaque session.\n\n- Default to opaque server sessions stored in Redis or Postgres, returned to the browser as an httpOnly cookie. They are instantly revocable, carry no payload to leak, and are the simplest model to reason about.\n- Reach for JWTs only when you genuinely need stateless verification across services or edge runtimes. Accept that revocation requires a denylist or very short TTLs.\n- A signed JWT cannot be invalidated before expiry. Keep access token TTL at 15 to 60 minutes and pair with a rotating refresh token to limit the blast radius of a leaked token.\n- Never put secrets, passwords, PII, or sensitive authorization claims in a JWT payload; it is base64, not encrypted, and is readable by anyone who holds it.",
+      "scopeType": "folder",
+      "priority": "high",
+      "enforcement": "strict"
     },
     {
       "kind": "rule",
       "nodePath": "/src/auth",
       "title": "Hash passwords with Argon2id, never fast hashes",
-      "summary": "Use Argon2id at OWASP parameters; bcrypt cost 12+ only as a legacy fallback.",
-      "body": "Passwords must be hashed with a memory-hard algorithm so offline cracking stays expensive.\n\n- Default to Argon2id via the `argon2` package using OWASP 2026 minimums: 19 MiB memory, 2 iterations, parallelism 1, then tune upward to your hardware.\n- Use bcrypt at cost factor 12 or higher only when Argon2 is unavailable in the runtime.\n- Never use `md5`, `sha1`, `sha256`, or any unsalted or single-round hash for passwords.\n- Compare with the library's built-in `verify` so the work factor and salt are read from the stored hash; never roll your own comparison."
+      "summary": "Use Argon2id at OWASP 2026 parameters; bcrypt at cost 12+ only as a legacy runtime fallback.",
+      "body": "Passwords must be hashed with a memory-hard algorithm so offline cracking remains expensive even with modern hardware.\n\n- Default to Argon2id via the `argon2` package using OWASP 2026 minimums: 19 MiB memory, 2 iterations, parallelism 1. Tune upward if your hardware allows without exceeding p95 login latency.\n- Use bcrypt at cost factor 12 or higher only when Argon2 is unavailable in the target runtime.\n- Never use `md5`, `sha1`, `sha256`, or any unsalted or single-round hash for passwords.\n- Compare passwords using the library's built-in `verify` so the work factor and salt are read from the stored hash. Never write your own comparison.",
+      "scopeType": "folder",
+      "priority": "high",
+      "enforcement": "strict"
     },
     {
       "kind": "rule",
       "nodePath": "/src/middleware",
       "title": "Protect cookie-based auth from CSRF",
-      "summary": "Cookie sessions need SameSite plus a double-submit CSRF token on state changes.",
-      "body": "Because the browser sends auth cookies automatically, every state-changing request needs an explicit CSRF defense.\n\n- Set `sameSite: 'lax'` as the baseline and `strict` on sensitive POST/PUT/PATCH/DELETE flows; SameSite alone is not a complete defense.\n- Add a double-submit cookie token (for example `csrf-csrf`) validated on every unsafe method; pure stateless JWT-in-header APIs that never use cookies can skip this.\n- Verify `Origin` or `Referer` on state-changing requests as defense in depth.\n- Treat `GET`, `HEAD`, and `OPTIONS` as safe and never mutate state in them.",
+      "summary": "SameSite plus a double-submit CSRF token on every state-changing request; pure JWT-in-header APIs that never use cookies can skip this.",
+      "body": "The browser sends auth cookies automatically on every matching request, including cross-site ones that SameSite alone does not fully cover in all scenarios. Every state-changing endpoint needs an explicit CSRF defense.\n\n- Set `sameSite: 'lax'` as the baseline; upgrade to `strict` on sensitive write flows.\n- Add a double-submit cookie token (for example `csrf-csrf`) validated on every unsafe method (POST, PUT, PATCH, DELETE). Pure stateless JWT-in-Authorization-header APIs that never use cookies do not need this.\n- Verify `Origin` or `Referer` on state-changing requests as defense in depth.\n- Treat GET, HEAD, and OPTIONS as safe; never mutate state inside them.",
       "scopeType": "folder",
       "priority": "high",
       "enforcement": "strict"
@@ -76,23 +92,16 @@ export const authSessionsJwtOauth: Pattern = {
     {
       "kind": "memory",
       "nodePath": "/src/auth",
-      "title": "Sessions vs JWT: pick the right model",
-      "summary": "Default to server sessions; reach for JWT only when statelessness is required.",
-      "body": "Choosing between server-side sessions and JWTs is the first auth decision and the one agents most often get wrong.\n\n- Default to opaque server sessions stored in Redis or Postgres with an httpOnly cookie. They are revocable instantly, carry no payload to leak, and are simplest to reason about.\n- Reach for JWTs only when you genuinely need stateless verification across services or edge runtimes, and accept that revocation requires a denylist or very short TTLs.\n- A signed JWT cannot be invalidated before expiry, so keep access token TTL low (15 to 60 min) and pair it with a rotating refresh token.\n- Do not put secrets or PII in a JWT payload; it is base64, not encrypted, and is readable by anyone holding it."
-    },
-    {
-      "kind": "memory",
-      "nodePath": "/src/auth",
-      "title": "OAuth/OIDC and refresh token rotation",
-      "summary": "Use Authorization Code + PKCE and rotate refresh tokens with replay detection.",
-      "body": "For third-party login and delegated access, follow RFC 9700 (OAuth 2.0 Security BCP) rather than older tutorials.\n\n- Always use the Authorization Code flow with PKCE, even for confidential clients; the implicit and password grants are deprecated. Use `openid-client` or `oauth4webapi` rather than hand-rolling the flow.\n- Validate the `state` parameter against CSRF and validate the OIDC `id_token` signature, `iss`, `aud`, and `nonce` before trusting any claim.\n- Rotate refresh tokens on every use: issue a new refresh token and invalidate the old one. If a consumed token is replayed, revoke the entire token family.\n- Make rotation atomic with a DB transaction or lock so concurrent refreshes cannot mint two valid tokens for one client."
+      "title": "OAuth/OIDC: PKCE, token rotation, and replay detection",
+      "summary": "Authorization Code + PKCE, validate all OIDC claims, rotate refresh tokens on every use with atomic replay detection.",
+      "body": "Third-party login and delegated access must follow RFC 9700 (OAuth 2.0 Security BCP). Older tutorials recommend flows that are now deprecated or insecure.\n\n- Always use the Authorization Code flow with PKCE, even for confidential clients. The implicit and resource-owner password grants are deprecated and absent from RFC 9700. Use `openid-client` or `oauth4webapi` instead of hand-rolling the flow.\n- Validate the `state` parameter on callback to prevent CSRF. Before trusting any OIDC claim, verify the `id_token` signature, `iss`, `aud`, and `nonce`.\n- Rotate refresh tokens on every use: issue a new refresh token and immediately invalidate the consumed one. If a consumed token is replayed, revoke the entire token family for that user.\n- Make rotation atomic with a database transaction or a compare-and-swap lock so concurrent refresh requests cannot mint two valid tokens for one client session.\n- Store OAuth tokens server-side under the same httpOnly cookie session, never in localStorage. The browser only needs the session cookie; the token exchange and storage live on the server."
     },
     {
       "kind": "skill",
       "nodePath": "/",
       "title": "auth-sessions-jwt-oauth-review",
       "summary": "Pre-merge checklist for any auth, session, JWT, or OAuth change.",
-      "body": "---\nname: auth-sessions-jwt-oauth-review\ndescription: Use before merging any authentication change covering sessions, JWTs, OAuth/OIDC, password storage, cookies, CSRF, and token rotation. Run every item against the diff.\n---\n\n# Auth (Sessions, JWT, OAuth) review\n\n- [ ] Tokens and session ids are stored in httpOnly, secure, SameSite cookies with a `__Host-` prefix, never in localStorage or sessionStorage.\n- [ ] Passwords are hashed with Argon2id at OWASP 2026 parameters (19 MiB, 2 iterations, parallelism 1), or bcrypt cost 12+ only as a documented fallback.\n- [ ] No fast or unsalted hash (md5, sha1, sha256) is used for passwords anywhere.\n- [ ] Session vs JWT choice is justified: opaque server sessions by default, JWT only when stateless verification is required.\n- [ ] Access tokens are short lived (15 to 60 min); JWTs carry no secrets or PII in the payload.\n- [ ] OAuth uses Authorization Code + PKCE; implicit and password grants are absent.\n- [ ] OAuth `state` is validated and the OIDC `id_token` signature, `iss`, `aud`, and `nonce` are verified before trusting claims.\n- [ ] Refresh tokens rotate on every use with replay detection that revokes the token family; rotation is atomic.\n- [ ] Cookie-based endpoints enforce CSRF protection (SameSite plus double-submit token) on all state-changing methods.\n- [ ] Auth failures return generic messages and do not leak whether the user or password was wrong.\n",
+      "body": "---\nname: auth-sessions-jwt-oauth-review\ndescription: Use before merging any authentication change covering sessions, JWTs, OAuth/OIDC, password storage, cookies, CSRF, and token rotation. Run every item against the diff.\n---\n\n# Auth (Sessions, JWT, OAuth) review\n\n- [ ] Tokens and session IDs are stored in httpOnly, secure, SameSite cookies with a `__Host-` prefix, never in localStorage or sessionStorage.\n- [ ] Session vs JWT choice is justified: opaque server sessions by default, JWT only when stateless cross-service verification is required.\n- [ ] Access tokens are short-lived (15 to 60 min); no secrets, passwords, or PII are in a JWT payload.\n- [ ] Passwords are hashed with Argon2id at OWASP 2026 parameters (19 MiB, 2 iterations, parallelism 1), or bcrypt cost 12+ only as a documented runtime fallback.\n- [ ] No fast or unsalted hash (md5, sha1, sha256) is used for passwords anywhere.\n- [ ] Cookie-based endpoints enforce CSRF protection (SameSite + double-submit token) on all state-changing methods.\n- [ ] OAuth uses Authorization Code + PKCE; implicit and password grants are absent.\n- [ ] OIDC `id_token` signature, `iss`, `aud`, and `nonce` are verified before trusting any claim. `state` is validated against CSRF.\n- [ ] Refresh tokens rotate on every use with replay detection that revokes the token family; rotation is atomic.\n- [ ] Auth failures return generic messages and do not leak whether the user or password was wrong.\n",
       "skillTags": [
         "auth",
         "security",

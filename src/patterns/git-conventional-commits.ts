@@ -51,8 +51,8 @@ export const gitConventionalCommits: Pattern = {
       "kind": "rule",
       "nodePath": "/",
       "title": "Commit messages follow Conventional Commits v1.0.0",
-      "summary": "Every commit subject uses a Conventional Commits type and stays under 50 characters.",
-      "body": "Format every commit as `<type>[optional scope][!]: <description>` per Conventional Commits v1.0.0 so `release-please` can derive versions and changelogs.\n\n- Use only these types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`.\n- Keep the subject in imperative mood, lowercase after the colon, no trailing period, and at most 50 characters; wrap the body at 72.\n- A `feat` maps to a MINOR bump and a `fix` to a PATCH; signal breaking changes with a `!` after the type or a `BREAKING CHANGE:` footer for a MAJOR bump.\n- Add a scope in parentheses when it clarifies the area, for example `fix(auth): refresh token before expiry`.",
+      "summary": "Every commit subject uses a typed prefix and stays under 52 characters.",
+      "body": "Format every commit as `<type>[optional scope][!]: <description>` per Conventional Commits v1.0.0 so release-please can derive versions and generate changelogs automatically.\n\n- Allowed types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`.\n- Subject in imperative mood, lowercase after the colon, no trailing period, at most 52 characters; wrap body at 72.\n- `feat` maps to a MINOR semver bump and `fix` to a PATCH; signal breaking changes with `!` after the type or a `BREAKING CHANGE:` footer for a MAJOR bump.\n- Add a scope in parentheses when it clarifies the area, for example `fix(auth): refresh token before expiry`.\n- This is enforced by commitlint in a lefthook `commit-msg` hook and repeated on the PR title since squash merge turns the PR title into the landed commit.",
       "scopeType": "project",
       "priority": "high",
       "enforcement": "strict"
@@ -60,35 +60,26 @@ export const gitConventionalCommits: Pattern = {
     {
       "kind": "rule",
       "nodePath": "/",
-      "title": "Short-lived branches and small focused PRs",
-      "summary": "Branch off main, keep PRs under ~400 lines, and never rebase pushed shared branches.",
-      "body": "Work on short-lived branches cut from `main` and merge them back within a day or two to keep integration cheap.\n\n- Target under ~400 changed lines per PR; split larger work into stacked or sequential PRs.\n- One logical change per PR so reviews are fast and reverts are clean.\n- Rebase your local branch onto `main` to stay current, but never rebase a branch others have already pulled.\n- Use squash merge so each PR lands as a single Conventional Commit on `main`; the PR title becomes that commit and must pass commit linting.",
+      "title": "Short-lived branches, squash merge, no rebase of pushed branches",
+      "summary": "Branch off main, squash merge PRs, never rebase commits already pushed to a shared branch.",
+      "body": "Keep integration cheap and history linear by coupling short-lived branches with squash merge.\n\n- Cut branches from `main` and merge them back within a day or two; PRs stay under ~400 changed lines.\n- Squash merge every PR so it lands as a single Conventional Commit on `main`; the PR title becomes that commit and must pass commit linting.\n- Rebase your local branch onto `main` to stay current before opening a PR, but never rebase a branch others have already pulled.\n- One logical change per PR so reverts are a single `git revert` with no collateral damage.",
       "scopeType": "project",
       "priority": "high",
       "enforcement": "advisory"
     },
     {
       "kind": "memory",
-      "nodePath": "/",
-      "title": "Rebase vs merge decision guide",
-      "summary": "When to rebase, when to merge, and the one rule you must never break.",
-      "body": "Pick the integration strategy by branch lifecycle, not by habit.\n\n- Rebase private short-lived feature branches onto `main` before opening or updating a PR to keep a linear, bisectable history.\n- Use a true merge (no rebase) for long-lived branches like a release branch going back into `main`, preserving collaboration context.\n- The hard rule: never rebase commits already pushed to a shared branch, since rewriting public history forces teammates to force-pull or re-clone.\n- Prefer squash merge for PR landings so the merged result is one clean Conventional Commit regardless of messy intermediate commits.",
-      "scopeType": "project"
-    },
-    {
-      "kind": "memory",
       "nodePath": "/.github",
-      "title": "Commit and release automation stack",
-      "summary": "How commitlint, lefthook, and release-please wire together in CI.",
-      "body": "Commit hygiene is enforced locally and in CI, then drives automated releases.\n\n- `@commitlint/cli` with `@commitlint/config-conventional` validates messages; run it from a `lefthook` `commit-msg` hook so bad messages never get committed.\n- Because we squash merge, the PR title becomes the commit, so lint PR titles in a GitHub Action against the same Conventional Commits rules.\n- `release-please` parses Conventional Commits on `main`, opens a release PR with the computed semver bump and generated `CHANGELOG.md`, and cuts the GitHub release on merge.\n- Keep `lefthook.yml` and the commitlint config at the repo root; keep the release-please and PR-title-lint workflows under `/.github/workflows`.",
-      "scopeType": "project"
+      "title": "Commit automation stack: commitlint + lefthook + release-please",
+      "summary": "How local hooks, CI title checks, and release-please wire together for zero-manual changelogs.",
+      "body": "Commit hygiene is enforced at three choke points: the local commit hook, the CI PR-title check, and the release pipeline.\n\n- `@commitlint/cli` with `@commitlint/config-conventional` validates messages via a `lefthook` `commit-msg` hook, so a bad message is rejected before it is committed.\n- Because we squash merge, the PR title becomes the final commit subject. A GitHub Actions workflow lints the PR title against the same rules using `amannn/action-semantic-pull-request`.\n- `release-please` watches commits on `main`, computes the semver bump from the highest type (`feat` = MINOR, `fix` = PATCH, `!` or `BREAKING CHANGE` = MAJOR), opens a release PR with a generated `CHANGELOG.md`, and cuts the GitHub Release on merge.\n- Keep `lefthook.yml` and `commitlint.config.ts` at the repo root; keep GitHub Actions workflows under `/.github/workflows`.\n- A `feat!: description` commit, or any commit with a `BREAKING CHANGE:` footer, triggers a MAJOR bump and requires explicit team acknowledgment before merge."
     },
     {
       "kind": "skill",
       "nodePath": "/",
       "title": "git-conventional-commits-review",
       "summary": "Pre-commit and pre-PR checklist for clean commits and reviewable pull requests.",
-      "body": "---\nname: git-conventional-commits-review\ndescription: Checklist to run before committing and before opening a PR so commits follow Conventional Commits v1.0.0, branches stay short-lived, and PRs stay small and reviewable. Use when writing a commit, opening a pull request, or reviewing git history hygiene.\n---\n\n# Git & Conventional Commits review\n\n- [ ] Subject matches `<type>[scope][!]: <description>` using an allowed type (`feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`).\n- [ ] Subject is imperative mood, lowercase after the colon, no trailing period, and at most 50 characters.\n- [ ] Body (if present) explains the why, wraps at 72 characters, and references issues in the footer.\n- [ ] Breaking changes are flagged with `!` or a `BREAKING CHANGE:` footer so the MAJOR bump is correct.\n- [ ] The change is one logical unit; unrelated changes are split into separate commits or PRs.\n- [ ] Branch is short-lived and freshly rebased onto `main`, with no rebase of commits already pushed to a shared branch.\n- [ ] PR is under ~400 changed lines, or has a clear plan to split it.\n- [ ] PR title is itself a valid Conventional Commit, since squash merge turns it into the landed commit.\n- [ ] `commitlint` and the PR-title lint check pass locally and in CI before requesting review.\n",
+      "body": "---\nname: git-conventional-commits-review\ndescription: Checklist to run before committing and before opening a PR so commits follow Conventional Commits v1.0.0, branches stay short-lived, and PRs are small and reviewable. Use when writing a commit, opening a pull request, or auditing git history hygiene.\n---\n\n# Git & Conventional Commits review\n\n## Commit message\n\n- [ ] Subject matches `<type>[scope][!]: <description>` using an allowed type (`feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`).\n- [ ] Subject is imperative mood, lowercase after the colon, no trailing period, and at most 52 characters.\n- [ ] Body (if present) explains the why, wraps at 72 characters, and references issues in the footer.\n- [ ] Breaking changes are flagged with `!` or a `BREAKING CHANGE:` footer so the MAJOR bump is computed correctly.\n\n## Branch and PR hygiene\n\n- [ ] Branch is short-lived and freshly rebased onto `main`; no rebase of commits already pushed to a shared branch.\n- [ ] PR is under ~400 changed lines, or has a clear note explaining why it is larger.\n- [ ] PR does one logical thing; unrelated changes are in separate branches.\n- [ ] PR title is itself a valid Conventional Commit, since squash merge turns it into the landed commit on `main`.\n\n## Automation\n\n- [ ] `commitlint` passes locally (lefthook `commit-msg` hook ran without error).\n- [ ] PR-title lint check is green in CI.\n- [ ] If a `BREAKING CHANGE` or `feat!` is included, the team has explicitly acknowledged the MAJOR semver bump.\n",
       "skillTags": [
         "git",
         "conventional-commits",
