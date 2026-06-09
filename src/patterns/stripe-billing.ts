@@ -17,6 +17,14 @@ export const stripeBilling: Pattern = {
   metaTitle: "Stripe billing patterns for AI coding agents",
   metaDescription:
     "A ready-to-use Pathrule pattern for Stripe: webhook signature verification, idempotent handlers, Checkout vs PaymentIntents guidance, and a billing review skill.",
+  problem:
+    "Billing code trusts unverified webhooks or double-applies retried events, causing security holes and wrong charges.",
+  audience: "teams adding subscriptions or payments with Stripe",
+  prevents: [
+    "Acting on a webhook before verifying its signature",
+    "Non-idempotent handlers that double-process retried events",
+    "Driving entitlements from the client redirect instead of webhooks",
+  ],
   appliesTo: {
     paths: ["/api/stripe", "/app/api/stripe", "/supabase/functions"],
     stacks: ["stripe"],

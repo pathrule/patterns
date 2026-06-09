@@ -17,6 +17,14 @@ export const nextjsAppRouter: Pattern = {
   metaTitle: "Next.js App Router patterns for AI coding agents",
   metaDescription:
     "A ready-to-use Pathrule pattern for Next.js App Router projects: server-component defaults, caching policy, secret safety, and a route review skill, scoped to the right paths.",
+  problem:
+    "App Router teams keep relitigating the same server/client and caching decisions, and AI assistants guess them differently every time.",
+  audience: "teams building product UI and routes on the Next.js App Router",
+  prevents: [
+    "Marking everything 'use client' and shipping a mostly-client app",
+    "Leaking server-only env or modules into the client bundle",
+    "Uncached dynamic rendering with no documented reason",
+  ],
   appliesTo: {
     paths: ["/app", "/apps/web", "/src/app"],
     stacks: ["nextjs", "react"],
