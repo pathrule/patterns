@@ -10,7 +10,7 @@ export const stripeBilling: Pattern = {
     "Rules, memories, and a review skill for adding Stripe billing to a product. Pre-scoped to your Stripe API routes and serverless functions so your AI assistant verifies webhook signatures, keeps handlers idempotent, and picks the correct payment API.",
   category: "Billing",
   icon: "credit-card",
-  color: "text-violet-600 dark:text-violet-400",
+  color: "bg-violet-500/10 text-violet-600 dark:bg-violet-400/15 dark:text-violet-400",
   installs: 0,
   updatedAt: "2026-06-09",
   changelog: [{ version: "1.0.0", date: "2026-06-09", note: "First release." }],

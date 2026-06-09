@@ -10,7 +10,7 @@ export const nextjsAppRouter: Pattern = {
     "Rules, memories, and a review skill for teams building on the Next.js App Router. Each piece is pre-scoped so your AI assistant applies it only where it is relevant: server and client boundaries, caching, and secret safety in the app directory, plus a route review checklist at the root.",
   category: "Framework",
   icon: "layout-panel-left",
-  color: "text-blue-600 dark:text-blue-400",
+  color: "bg-blue-500/10 text-blue-600 dark:bg-blue-400/15 dark:text-blue-400",
   installs: 0,
   updatedAt: "2026-06-09",
   changelog: [{ version: "1.0.0", date: "2026-06-09", note: "First release." }],
