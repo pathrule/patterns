@@ -65,7 +65,7 @@ export type Pattern = {
   category: PatternCategory;
   /** lucide icon NAME (kebab-case), mapped to a component on the web. Not a component. */
   icon: string;
-  /** Tailwind text-color classes for the icon glyph (the chip background is uniform on the web). */
+  /** Tailwind accent classes for the icon chip (light tinted background + glyph color). */
   color: string;
   /** Static popularity signal for now (effectiveness scoring comes later). */
   installs?: number;
