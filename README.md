@@ -1,12 +1,99 @@
-# Pathrule Patterns
+<p align="center">
+  <img src="assets/pathrule-banner.png" alt="Pathrule Patterns" width="640">
+</p>
 
-**The context layer for AI coding agents.** Curated, path-scoped knowledge packages: ready-to-use bundles of memories, rules, and skills that drop into your workspace and apply where they belong.
+<p align="center"><strong>The context layer for AI coding agents.</strong><br/>Ready-to-use, path-scoped bundles of memories, rules, and skills that drop into your workspace and apply where they belong.</p>
+
+<p align="center">
+  <a href="#catalog">Catalog</a> &nbsp;·&nbsp;
+  <a href="#what-is-a-pattern">What is a Pattern</a> &nbsp;·&nbsp;
+  <a href="#using-a-pattern">Using a Pattern</a> &nbsp;·&nbsp;
+  <a href="https://pathrule.io/patterns">Browse online</a>
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" alt="License: Apache-2.0"></a>
+  <a href="https://www.npmjs.com/package/@pathrule/patterns"><img src="https://img.shields.io/npm/v/%40pathrule%2Fpatterns?label=%40pathrule%2Fpatterns" alt="npm"></a>
+  <img src="https://img.shields.io/badge/patterns-31-119e6f" alt="31 patterns">
+  <img src="https://img.shields.io/badge/content-first--party-119e6f" alt="First-party content">
+</p>
+
+<p align="center">
+  Works with <strong>Claude Code</strong>, <strong>Cursor</strong>, <strong>Codex</strong>, <strong>GitHub Copilot</strong>, <strong>Windsurf</strong>, and any MCP client.
+</p>
+
+---
 
 A Pattern is not a single skill. It is a small, opinionated bundle of memories, rules, and skills, each pre-scoped to the path it belongs to (for example, a "Server Components by default" rule scoped to `/app`). Add a Pattern and your AI assistant gets the right conventions in the right place, then it evolves with your project.
 
-Works with Claude Code, Cursor, Codex, GitHub Copilot, Windsurf, and any MCP client.
+Everything here is **free and Apache-2.0**. Pathrule only ever charges for the hosted product, never for this content.
 
-## What is in a Pattern
+## Catalog
+
+**31 patterns across 6 categories.** Each links to its full page; `Bundle` shows the mix of **R**ules, **M**emories, and **S**kills, composed to fit the topic rather than a fixed template.
+
+### Framework
+
+| Pattern | What it gives you | Bundle | Token |
+| --- | --- | --- | --- |
+| [Astro](https://pathrule.io/patterns/astro) | Ship content-first sites that send almost no JavaScript by default. | 3R · 3M · 1S | `::pathrule:package:astro` |
+| [Expo (React Native)](https://pathrule.io/patterns/expo-react-native) | Ship Expo apps with file-based routing, EAS Build, and safe OTA updates. | 3R · 3M · 1S | `::pathrule:package:expo-react-native` |
+| [Next.js App Router](https://pathrule.io/patterns/nextjs-app-router) | Battle-tested conventions for a Next.js App Router codebase, scoped to the paths they belong to. | 4R · 2M · 1S | `::pathrule:package:nextjs-app-router` |
+| [Nuxt](https://pathrule.io/patterns/nuxt) | Ship Nuxt 4 apps with correct data fetching, server routes, and SSR-safe code. | 5R · 2M · 1S | `::pathrule:package:nuxt` |
+| [React Router 7](https://pathrule.io/patterns/react-router) | Build full-stack React apps with framework mode loaders, actions, and generated route types. | 3R · 2M · 1S | `::pathrule:package:react-router` |
+| [SvelteKit](https://pathrule.io/patterns/sveltekit) | Keep server secrets, load data, and mutations correct across SvelteKit 2 and Svelte 5. | 2R · 4M · 1S | `::pathrule:package:sveltekit` |
+
+### Frontend
+
+| Pattern | What it gives you | Bundle | Token |
+| --- | --- | --- | --- |
+| [Forms with React Hook Form + Zod](https://pathrule.io/patterns/forms-rhf-zod) | Schema-first, type-safe forms with shared client and server validation. | 3R · 1M · 1S | `::pathrule:package:forms-rhf-zod` |
+| [React + TypeScript](https://pathrule.io/patterns/react-typescript) | Pragmatic React and TypeScript conventions: typed props, accessible UI, and predictable hooks. | 2R · 3M · 1S | `::pathrule:package:react-typescript` |
+| [shadcn/ui](https://pathrule.io/patterns/shadcn-ui) | Own your component code and theme it with CSS variables instead of installing a black-box UI library. | 2R · 3M · 1S | `::pathrule:package:shadcn-ui` |
+| [Tailwind CSS](https://pathrule.io/patterns/tailwind-css) | Keep Tailwind v4 utility code clean, token-driven, and free of arbitrary-value sprawl. | 2R · 3M · 1S | `::pathrule:package:tailwind-css` |
+| [TanStack Query](https://pathrule.io/patterns/tanstack-query) | Treat the server as the source of truth and let the cache do the work. | 2R · 3M · 1S | `::pathrule:package:tanstack-query` |
+| [Web Accessibility](https://pathrule.io/patterns/web-accessibility) | Ship interfaces that work for keyboard, screen reader, and low-vision users by default. | 3R · 2M · 1S | `::pathrule:package:web-accessibility` |
+
+### Backend
+
+| Pattern | What it gives you | Bundle | Token |
+| --- | --- | --- | --- |
+| [Auth (Sessions, JWT, OAuth)](https://pathrule.io/patterns/auth-sessions-jwt-oauth) | Build authentication that resists XSS, CSRF, and token replay by default. | 4R · 1M · 1S | `::pathrule:package:auth-sessions-jwt-oauth` |
+| [Background Jobs & Queues](https://pathrule.io/patterns/background-jobs-queues) | Make every queued job safe to run twice so retries heal instead of corrupt. | 2R · 3M · 1S | `::pathrule:package:background-jobs-queues` |
+| [Drizzle ORM](https://pathrule.io/patterns/drizzle-orm) | Keep your TypeScript schema, migrations, and typed queries honest with Drizzle. | 2R · 3M · 1S | `::pathrule:package:drizzle-orm` |
+| [Node + TypeScript API (Hono)](https://pathrule.io/patterns/node-ts-api-hono) | Build type-safe Hono APIs with chained routes, schema validation, and a typed RPC client. | 3R · 3M · 1S | `::pathrule:package:node-ts-api-hono` |
+| [PostgreSQL Schema & Migrations](https://pathrule.io/patterns/postgres-schema) | Design normalized PostgreSQL schemas and ship lock-safe, forward-only migrations. | 3R · 2M · 1S | `::pathrule:package:postgres-schema` |
+| [REST / HTTP API Design](https://pathrule.io/patterns/rest-api-design) | Design HTTP APIs that stay predictable, safe to retry, and easy to evolve. | 2R · 3M · 1S | `::pathrule:package:rest-api-design` |
+| [Supabase + RLS](https://pathrule.io/patterns/supabase-rls) | Row Level Security done right: deny by default, user JWT only, and a clean migration workflow. | 3R · 3M · 1S | `::pathrule:package:supabase-rls` |
+
+### Billing
+
+| Pattern | What it gives you | Bundle | Token |
+| --- | --- | --- | --- |
+| [Stripe Billing](https://pathrule.io/patterns/stripe-billing) | Safe Stripe integration: verified webhooks, idempotent handlers, and the right API for the job. | 4R · 4M · 1S | `::pathrule:package:stripe-billing` |
+| [Subscriptions & Usage Billing](https://pathrule.io/patterns/subscriptions-usage-billing) | Ship metered subscriptions on Stripe Billing without dropping usage or double-charging customers. | 3R · 2M · 1S | `::pathrule:package:subscriptions-usage-billing` |
+
+### Infra
+
+| Pattern | What it gives you | Bundle | Token |
+| --- | --- | --- | --- |
+| [Docker & Containers](https://pathrule.io/patterns/docker-containers) | Ship small, secure, cache-friendly container images by default. | 2R · 2M · 1S | `::pathrule:package:docker-containers` |
+| [GitHub Actions CI/CD](https://pathrule.io/patterns/github-actions-cicd) | Build hardened, fast, OIDC-deployed GitHub Actions pipelines that AI agents keep secure by default. | 3R · 1M · 1S | `::pathrule:package:github-actions-cicd` |
+| [Observability](https://pathrule.io/patterns/observability) | Emit correlated logs, metrics, and traces that make incidents debuggable. | 2R · 2M · 1S | `::pathrule:package:observability` |
+| [Secrets & Environment Management](https://pathrule.io/patterns/secrets-env-management) | Keep secrets out of git, inject them at runtime, and rotate them automatically. | 3R · 2M · 1S | `::pathrule:package:secrets-env-management` |
+| [Terraform / IaC](https://pathrule.io/patterns/terraform-iac) | Ship Terraform with locked remote state, pinned versions, and a plan-gated CI pipeline. | 3R · 3M · 1S | `::pathrule:package:terraform-iac` |
+| [Vercel Deployment](https://pathrule.io/patterns/vercel-deploy) | Ship to Vercel with safe previews, scoped env vars, and instant rollbacks. | 2R · 3M · 1S | `::pathrule:package:vercel-deploy` |
+
+### Workflow
+
+| Pattern | What it gives you | Bundle | Token |
+| --- | --- | --- | --- |
+| [Code Review](https://pathrule.io/patterns/code-review) | Ship small pull requests that reviewers can approve fast with confidence. | 3R · 1M · 1S | `::pathrule:package:code-review` |
+| [Git & Conventional Commits](https://pathrule.io/patterns/git-conventional-commits) | Keep history readable and releases automatic with small commits and Conventional Commits. | 2R · 1M · 1S | `::pathrule:package:git-conventional-commits` |
+| [Monorepo (pnpm + Turborepo)](https://pathrule.io/patterns/monorepo-pnpm-turborepo) | Keep a pnpm and Turborepo monorepo fast, cacheable, and boundary-clean. | 3R · 2M · 1S | `::pathrule:package:monorepo-pnpm-turborepo` |
+| [Testing (Vitest + Playwright)](https://pathrule.io/patterns/testing-vitest-playwright) | Unit test behavior with Vitest, drive real user flows with Playwright, and keep both green in CI. | 3R · 2M · 1S | `::pathrule:package:testing-vitest-playwright` |
+
+## What is a Pattern
 
 Each Pattern declares its pieces with a `kind` (`memory` | `rule` | `skill`), the target `nodePath`, and the full content body:
 
@@ -14,26 +101,17 @@ Each Pattern declares its pieces with a `kind` (`memory` | `rule` | `skill`), th
 - **Rules** are constraints your agent should respect (with scope, priority, and advisory or strict enforcement).
 - **Skills** are reusable checklists or procedures.
 
-Everything in this repository is **free and Apache-2.0**. Pathrule only ever charges for the hosted product, never for this content.
+The bundle for each pattern is composed from its actual subject: rule-heavy for constraint and security topics, memory-heavy for conventions and architecture, skill-heavy for review and checklist topics. No two need to look alike.
 
 ## Using a Pattern
 
 Browse the catalog at **[pathrule.io/patterns](https://pathrule.io/patterns)**.
 
-- **One-click import** (coming soon): paste a reference token into your AI assistant and Pathrule places each piece at the right path in your workspace.
+- **One-click import**: paste a reference token into your AI assistant and Pathrule places each piece at the right path in your workspace.
   ```
   ::pathrule:package:nextjs-app-router
   ```
-- **Manual copy** (works today): copy the full bundle from a Pattern page and paste the pieces where you want them.
-
-## Patterns in this release
-
-| Pattern | Category | Token |
-| --- | --- | --- |
-| Next.js App Router | Framework | `::pathrule:package:nextjs-app-router` |
-| Supabase + RLS | Backend | `::pathrule:package:supabase-rls` |
-| Stripe Billing | Billing | `::pathrule:package:stripe-billing` |
-| React + TypeScript | Frontend | `::pathrule:package:react-typescript` |
+- **Manual copy**: copy the full bundle from a Pattern page and paste the pieces where you want them.
 
 ## Using the package programmatically
 
