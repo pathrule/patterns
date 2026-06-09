@@ -34,7 +34,9 @@ export type PatternCategory =
   | "Billing"
   | "Frontend"
   | "Infra"
-  | "Workflow";
+  | "Workflow"
+  | "AI"
+  | "Security";
 
 export type PatternChangelogEntry = {
   version: string;
