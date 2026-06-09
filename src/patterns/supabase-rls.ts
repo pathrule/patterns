@@ -10,7 +10,7 @@ export const supabaseRls: Pattern = {
     "Rules, memories, and a review skill for Supabase Postgres projects that take Row Level Security seriously. Pre-scoped to your supabase directory so your AI assistant enforces RLS, keeps the service role out of clients, and follows a disciplined migration flow.",
   category: "Backend",
   icon: "database",
-  color: "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-400",
+  color: "text-emerald-600 dark:text-emerald-400",
   installs: 0,
   updatedAt: "2026-06-09",
   changelog: [{ version: "1.0.0", date: "2026-06-09", note: "First release." }],
