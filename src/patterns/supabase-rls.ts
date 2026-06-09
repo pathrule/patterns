@@ -17,6 +17,14 @@ export const supabaseRls: Pattern = {
   metaTitle: "Supabase Row Level Security patterns for AI coding agents",
   metaDescription:
     "A ready-to-use Pathrule pattern for Supabase: RLS enabled by default, user JWT instead of the service role, a helper-function access model, and a migration review skill.",
+  problem:
+    "Postgres tables ship without Row Level Security, or the service role key sneaks into client paths, leaving data open to anyone.",
+  audience: "teams building on Supabase Postgres with multi-tenant or per-user data",
+  prevents: [
+    "Creating a table without RLS enabled and policies",
+    "Using the service role key where the user's JWT belongs",
+    "Ad hoc access checks that drift apart across tables",
+  ],
   appliesTo: {
     paths: ["/supabase", "/supabase/migrations", "/supabase/functions"],
     stacks: ["supabase", "postgres"],

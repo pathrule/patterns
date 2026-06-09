@@ -75,6 +75,12 @@ export type Pattern = {
   changelog?: PatternChangelogEntry[];
   metaTitle: string;
   metaDescription: string;
+  /** Optional "why this pattern" context for the detail page: the problem it solves. */
+  problem?: string;
+  /** Which teams it is built for. */
+  audience?: string;
+  /** Mistakes the assistant avoids once this pattern is in place. */
+  prevents?: string[];
   appliesTo?: PatternAppliesTo;
   /** The bundle. Counts and target paths are derived from this. */
   pieces: PatternPiece[];

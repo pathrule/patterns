@@ -17,6 +17,14 @@ export const reactTypescript: Pattern = {
   metaTitle: "React and TypeScript patterns for AI coding agents",
   metaDescription:
     "A ready-to-use Pathrule pattern for React with TypeScript: typed props without any, accessible interactive elements, hook discipline, and a component review skill.",
+  problem:
+    "React and TypeScript components drift into any-typed props, inaccessible controls, and effect-driven data fetching.",
+  audience: "frontend teams writing React in TypeScript",
+  prevents: [
+    "Untyped or any-typed props and event handlers",
+    "div-with-onClick controls that fail keyboard and screen-reader users",
+    "Fetching data inside effects instead of a real data layer",
+  ],
   appliesTo: {
     paths: ["/src", "/src/components", "/app", "/components"],
     stacks: ["react", "typescript"],
