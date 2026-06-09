@@ -10,7 +10,7 @@ export const reactTypescript: Pattern = {
     "Rules, memories, and a review skill for React codebases written in TypeScript. Pre-scoped to your source and component directories so your AI assistant writes typed, accessible, and predictable components.",
   category: "Frontend",
   icon: "component",
-  color: "bg-sky-500/10 text-sky-600 dark:bg-sky-400/15 dark:text-sky-400",
+  color: "text-sky-600 dark:text-sky-400",
   installs: 0,
   updatedAt: "2026-06-09",
   changelog: [{ version: "1.0.0", date: "2026-06-09", note: "First release." }],
