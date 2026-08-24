@@ -14,7 +14,7 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" alt="License: Apache-2.0"></a>
   <a href="https://www.npmjs.com/package/@pathrule/patterns"><img src="https://img.shields.io/npm/v/%40pathrule%2Fpatterns?label=%40pathrule%2Fpatterns" alt="npm"></a>
-  <img src="https://img.shields.io/badge/patterns-43-119e6f" alt="43 patterns">
+  <img src="https://img.shields.io/badge/patterns-58-119e6f" alt="58 patterns">
   <img src="https://img.shields.io/badge/content-first--party-119e6f" alt="First-party content">
 </p>
 
@@ -30,30 +30,36 @@ Everything here is **free and Apache-2.0**. Pathrule only ever charges for the h
 
 ## Catalog
 
-**43 patterns across 8 categories.** Each links to its full page; `Bundle` shows the mix of **R**ules, **M**emories, and **S**kills, composed to fit the topic rather than a fixed template.
+**58 patterns across 8 categories.** Each links to its full page; `Bundle` shows the mix of **R**ules, **M**emories, and **S**kills, composed to fit the topic rather than a fixed template.
 
 ### Framework
 
 | Pattern | What it gives you | Bundle | Token |
 | --- | --- | --- | --- |
+| [Angular](https://pathrule.io/patterns/angular) | Write signal-first, zoneless Angular with standalone components and no manual subscriptions. | 4R · 2M | `::pathrule:package:angular` |
 | [Astro](https://pathrule.io/patterns/astro) | Ship content-first sites that send almost no JavaScript by default. | 3R · 3M · 1S | `::pathrule:package:astro` |
+| [Django](https://pathrule.io/patterns/django) | Write Django apps with a query-efficient ORM, safe settings, and async views that do not block. | 3R · 3M · 1S | `::pathrule:package:django` |
 | [Expo (React Native)](https://pathrule.io/patterns/expo-react-native) | Ship Expo apps with file-based routing, EAS Build, and safe OTA updates. | 3R · 3M · 1S | `::pathrule:package:expo-react-native` |
 | [Flutter](https://pathrule.io/patterns/flutter) | Build Flutter apps that stay fast and leak-free with disciplined widgets and clear state boundaries. | 2R · 3M · 1S | `::pathrule:package:flutter` |
+| [Laravel](https://pathrule.io/patterns/laravel) | Build Laravel apps with lean Eloquent queries, validated requests, and queued work that retries safely. | 3R · 2M · 1S | `::pathrule:package:laravel` |
 | [Next.js App Router](https://pathrule.io/patterns/nextjs-app-router) | Battle-tested conventions for a Next.js App Router codebase, scoped to the paths they belong to. | 4R · 2M · 1S | `::pathrule:package:nextjs-app-router` |
 | [Nuxt](https://pathrule.io/patterns/nuxt) | Ship Nuxt 4 apps with correct data fetching, server routes, and SSR-safe code. | 5R · 2M · 1S | `::pathrule:package:nuxt` |
 | [React Router 7](https://pathrule.io/patterns/react-router) | Build full-stack React apps with framework mode loaders, actions, and generated route types. | 3R · 2M · 1S | `::pathrule:package:react-router` |
+| [Ruby on Rails](https://pathrule.io/patterns/rails) | Work with Rails 8 as it ships today: the Solid stack, Hotwire views, and queries that do not multiply. | 2R · 5M | `::pathrule:package:rails` |
 | [SvelteKit](https://pathrule.io/patterns/sveltekit) | Keep server secrets, load data, and mutations correct across SvelteKit 2 and Svelte 5. | 2R · 4M · 1S | `::pathrule:package:sveltekit` |
+| [SwiftUI](https://pathrule.io/patterns/swiftui) | Build SwiftUI apps that compile under Swift 6 strict concurrency and keep state in one owner. | 4R · 2M · 1S | `::pathrule:package:swiftui` |
 
 ### Frontend
 
 | Pattern | What it gives you | Bundle | Token |
 | --- | --- | --- | --- |
+| [Core Web Vitals](https://pathrule.io/patterns/core-web-vitals) | Hit LCP under 2.5 seconds, INP under 200 milliseconds, and CLS under 0.1 on real traffic. | 2R · 2M · 2S | `::pathrule:package:core-web-vitals` |
 | [Forms with React Hook Form + Zod](https://pathrule.io/patterns/forms-rhf-zod) | Schema-first, type-safe forms with shared client and server validation. | 3R · 1M · 1S | `::pathrule:package:forms-rhf-zod` |
 | [React + TypeScript](https://pathrule.io/patterns/react-typescript) | Pragmatic React and TypeScript conventions: typed props, accessible UI, and predictable hooks. | 2R · 3M · 1S | `::pathrule:package:react-typescript` |
-| [TypeScript Strict](https://pathrule.io/patterns/typescript-strict) | Make the compiler do the work: no any, no escape hatches, types that model reality. | 4R · 1M · 1S | `::pathrule:package:typescript-strict` |
 | [shadcn/ui](https://pathrule.io/patterns/shadcn-ui) | Own your component code and theme it with CSS variables instead of installing a black-box UI library. | 2R · 3M · 1S | `::pathrule:package:shadcn-ui` |
 | [Tailwind CSS](https://pathrule.io/patterns/tailwind-css) | Keep Tailwind v4 utility code clean, token-driven, and free of arbitrary-value sprawl. | 2R · 3M · 1S | `::pathrule:package:tailwind-css` |
 | [TanStack Query](https://pathrule.io/patterns/tanstack-query) | Treat the server as the source of truth and let the cache do the work. | 2R · 3M · 1S | `::pathrule:package:tanstack-query` |
+| [TypeScript Strict](https://pathrule.io/patterns/typescript-strict) | Make the compiler do the work: no any, no escape hatches, types that model reality. | 4R · 1M · 1S | `::pathrule:package:typescript-strict` |
 | [Web Accessibility](https://pathrule.io/patterns/web-accessibility) | Ship interfaces that work for keyboard, screen reader, and low-vision users by default. | 3R · 2M · 1S | `::pathrule:package:web-accessibility` |
 
 ### Backend
@@ -63,13 +69,18 @@ Everything here is **free and Apache-2.0**. Pathrule only ever charges for the h
 | [Auth (Sessions, JWT, OAuth)](https://pathrule.io/patterns/auth-sessions-jwt-oauth) | Build authentication that resists XSS, CSRF, and token replay by default. | 4R · 1M · 1S | `::pathrule:package:auth-sessions-jwt-oauth` |
 | [Background Jobs & Queues](https://pathrule.io/patterns/background-jobs-queues) | Make every queued job safe to run twice so retries heal instead of corrupt. | 2R · 3M · 1S | `::pathrule:package:background-jobs-queues` |
 | [Drizzle ORM](https://pathrule.io/patterns/drizzle-orm) | Keep your TypeScript schema, migrations, and typed queries honest with Drizzle. | 2R · 3M · 1S | `::pathrule:package:drizzle-orm` |
-| [Node + TypeScript API (Hono)](https://pathrule.io/patterns/node-ts-api-hono) | Build type-safe Hono APIs with chained routes, schema validation, and a typed RPC client. | 3R · 3M · 1S | `::pathrule:package:node-ts-api-hono` |
-| [PostgreSQL Schema & Migrations](https://pathrule.io/patterns/postgres-schema) | Design normalized PostgreSQL schemas and ship lock-safe, forward-only migrations. | 3R · 2M · 1S | `::pathrule:package:postgres-schema` |
-| [REST / HTTP API Design](https://pathrule.io/patterns/rest-api-design) | Design HTTP APIs that stay predictable, safe to retry, and easy to evolve. | 2R · 3M · 1S | `::pathrule:package:rest-api-design` |
-| [Supabase + RLS](https://pathrule.io/patterns/supabase-rls) | Row Level Security done right: deny by default, user JWT only, and a clean migration workflow. | 3R · 3M · 1S | `::pathrule:package:supabase-rls` |
 | [FastAPI (Python)](https://pathrule.io/patterns/fastapi) | Build type-safe async Python APIs with Pydantic validation and dependency injection. | 4R · 2M · 1S | `::pathrule:package:fastapi` |
 | [Go API (Gin / Echo)](https://pathrule.io/patterns/go-api) | Build idiomatic Go HTTP services with honest errors, context propagation, and validated input. | 3R · 2M · 1S | `::pathrule:package:go-api` |
+| [GraphQL API](https://pathrule.io/patterns/graphql-api) | Ship a GraphQL API that batches its queries, authorizes per field, and cannot be walked by a stranger. | 4R · 1M · 1S | `::pathrule:package:graphql-api` |
+| [Kafka Event-Driven Services](https://pathrule.io/patterns/kafka-event-driven) | Produce and consume Kafka events with keys that preserve order and handlers that survive redelivery. | 3R · 2M · 2S | `::pathrule:package:kafka-event-driven` |
+| [MongoDB + Mongoose](https://pathrule.io/patterns/mongodb-mongoose) | Model MongoDB documents around the queries you run, then keep those queries indexed and lean. | 2R · 3M · 1S | `::pathrule:package:mongodb-mongoose` |
+| [Multi-Tenant SaaS](https://pathrule.io/patterns/multi-tenancy) | Make cross-tenant data leaks structurally impossible instead of relying on every query being careful. | 4R · 2M · 1S | `::pathrule:package:multi-tenancy` |
+| [Node + TypeScript API (Hono)](https://pathrule.io/patterns/node-ts-api-hono) | Build type-safe Hono APIs with chained routes, schema validation, and a typed RPC client. | 3R · 3M · 1S | `::pathrule:package:node-ts-api-hono` |
+| [PostgreSQL Schema & Migrations](https://pathrule.io/patterns/postgres-schema) | Design normalized PostgreSQL schemas and ship lock-safe, forward-only migrations. | 3R · 2M · 1S | `::pathrule:package:postgres-schema` |
+| [Prisma ORM](https://pathrule.io/patterns/prisma-orm) | Use Prisma 7 as it actually ships: generated client, driver adapters, and one instance per process. | 3R · 1M · 1S | `::pathrule:package:prisma-orm` |
 | [Redis Caching](https://pathrule.io/patterns/redis-caching) | Cache with Redis so reads get faster without serving stale or inconsistent data. | 2R · 3M · 1S | `::pathrule:package:redis-caching` |
+| [REST / HTTP API Design](https://pathrule.io/patterns/rest-api-design) | Design HTTP APIs that stay predictable, safe to retry, and easy to evolve. | 2R · 3M · 1S | `::pathrule:package:rest-api-design` |
+| [Supabase + RLS](https://pathrule.io/patterns/supabase-rls) | Row Level Security done right: deny by default, user JWT only, and a clean migration workflow. | 3R · 3M · 1S | `::pathrule:package:supabase-rls` |
 
 ### Billing
 
@@ -82,8 +93,11 @@ Everything here is **free and Apache-2.0**. Pathrule only ever charges for the h
 
 | Pattern | What it gives you | Bundle | Token |
 | --- | --- | --- | --- |
+| [AWS Lambda](https://pathrule.io/patterns/aws-lambda) | Write Lambda handlers that reuse their init work, retry safely, and do not exhaust the database. | 3R · 2M · 1S | `::pathrule:package:aws-lambda` |
+| [Cloudflare Workers](https://pathrule.io/patterns/cloudflare-workers) | Write Workers that use bindings, respect the isolate model, and stay inside the CPU budget. | 2R · 2M · 1S | `::pathrule:package:cloudflare-workers` |
 | [Docker & Containers](https://pathrule.io/patterns/docker-containers) | Ship small, secure, cache-friendly container images by default. | 2R · 2M · 1S | `::pathrule:package:docker-containers` |
 | [GitHub Actions CI/CD](https://pathrule.io/patterns/github-actions-cicd) | Build hardened, fast, OIDC-deployed GitHub Actions pipelines that AI agents keep secure by default. | 3R · 1M · 1S | `::pathrule:package:github-actions-cicd` |
+| [Kubernetes + Helm](https://pathrule.io/patterns/kubernetes-helm) | Ship workloads that Kubernetes can schedule, restart, drain, and scale without dropping requests. | 5R · 2M · 1S | `::pathrule:package:kubernetes-helm` |
 | [Observability](https://pathrule.io/patterns/observability) | Emit correlated logs, metrics, and traces that make incidents debuggable. | 2R · 2M · 1S | `::pathrule:package:observability` |
 | [Secrets & Environment Management](https://pathrule.io/patterns/secrets-env-management) | Keep secrets out of git, inject them at runtime, and rotate them automatically. | 3R · 2M · 1S | `::pathrule:package:secrets-env-management` |
 | [Terraform / IaC](https://pathrule.io/patterns/terraform-iac) | Ship Terraform with locked remote state, pinned versions, and a plan-gated CI pipeline. | 3R · 3M · 1S | `::pathrule:package:terraform-iac` |
@@ -95,18 +109,19 @@ Everything here is **free and Apache-2.0**. Pathrule only ever charges for the h
 | --- | --- | --- | --- |
 | [Code Review](https://pathrule.io/patterns/code-review) | Ship small pull requests that reviewers can approve fast with confidence. | 3R · 1M · 1S | `::pathrule:package:code-review` |
 | [Git & Conventional Commits](https://pathrule.io/patterns/git-conventional-commits) | Keep history readable and releases automatic with small commits and Conventional Commits. | 2R · 1M · 1S | `::pathrule:package:git-conventional-commits` |
+| [Modern Python Tooling (uv + Ruff)](https://pathrule.io/patterns/python-tooling) | Set up Python projects the 2026 way: one fast tool for envs and deps, one for lint and format. | 2R · 2M · 1S | `::pathrule:package:python-tooling` |
 | [Monorepo (pnpm + Turborepo)](https://pathrule.io/patterns/monorepo-pnpm-turborepo) | Keep a pnpm and Turborepo monorepo fast, cacheable, and boundary-clean. | 3R · 2M · 1S | `::pathrule:package:monorepo-pnpm-turborepo` |
 | [Testing (Vitest + Playwright)](https://pathrule.io/patterns/testing-vitest-playwright) | Unit test behavior with Vitest, drive real user flows with Playwright, and keep both green in CI. | 3R · 2M · 1S | `::pathrule:package:testing-vitest-playwright` |
-| [Modern Python Tooling (uv + Ruff)](https://pathrule.io/patterns/python-tooling) | Set up Python projects the 2026 way: one fast tool for envs and deps, one for lint and format. | 2R · 2M · 1S | `::pathrule:package:python-tooling` |
 
 ### AI
 
 | Pattern | What it gives you | Bundle | Token |
 | --- | --- | --- | --- |
+| [AI Agents in Production](https://pathrule.io/patterns/ai-agents) | Run agent loops with hard budgets, small tool surfaces, and approval gates on anything irreversible. | 4R · 2M · 1S | `::pathrule:package:ai-agents` |
 | [AI SDK (Vercel AI SDK)](https://pathrule.io/patterns/ai-sdk) | Build streaming, tool-calling LLM features with one typed API across every provider. | 3R · 2M · 1S | `::pathrule:package:ai-sdk` |
-| [RAG & Embeddings](https://pathrule.io/patterns/rag-embeddings) | Ground LLM answers in your own data with retrieval that returns the right chunks, not just similar ones. | 2R · 3M · 1S | `::pathrule:package:rag-embeddings` |
-| [MCP Server Authoring](https://pathrule.io/patterns/mcp-server-authoring) | Build Model Context Protocol servers whose tools an LLM can actually call correctly and safely. | 3R · 1M · 1S | `::pathrule:package:mcp-server-authoring` |
 | [LLM Evaluations & Testing](https://pathrule.io/patterns/llm-evals) | Catch hallucinations and quality regressions before users do, with evals on every prompt change. | 1R · 2M · 2S | `::pathrule:package:llm-evals` |
+| [MCP Server Authoring](https://pathrule.io/patterns/mcp-server-authoring) | Build Model Context Protocol servers whose tools an LLM can actually call correctly and safely. | 3R · 1M · 1S | `::pathrule:package:mcp-server-authoring` |
+| [RAG & Embeddings](https://pathrule.io/patterns/rag-embeddings) | Ground LLM answers in your own data with retrieval that returns the right chunks, not just similar ones. | 2R · 3M · 1S | `::pathrule:package:rag-embeddings` |
 
 ### Security
 
