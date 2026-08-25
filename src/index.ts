@@ -12,10 +12,15 @@ import { nextjsAppRouter } from "./patterns/nextjs-app-router.js";
 import { nuxt } from "./patterns/nuxt.js";
 import { reactRouter } from "./patterns/react-router.js";
 import { rails } from "./patterns/rails.js";
+import { springBoot } from "./patterns/spring-boot.js";
 import { sveltekit } from "./patterns/sveltekit.js";
 import { swiftui } from "./patterns/swiftui.js";
+import { clientStateManagement } from "./patterns/client-state-management.js";
 import { coreWebVitals } from "./patterns/core-web-vitals.js";
+import { dataTablesGrids } from "./patterns/data-tables-grids.js";
+import { designSystemsStorybook } from "./patterns/design-systems-storybook.js";
 import { formsRhfZod } from "./patterns/forms-rhf-zod.js";
+import { internationalizationLocalization } from "./patterns/internationalization-localization.js";
 import { reactTypescript } from "./patterns/react-typescript.js";
 import { shadcnUi } from "./patterns/shadcn-ui.js";
 import { tailwindCss } from "./patterns/tailwind-css.js";
@@ -26,6 +31,7 @@ import { authSessionsJwtOauth } from "./patterns/auth-sessions-jwt-oauth.js";
 import { backgroundJobsQueues } from "./patterns/background-jobs-queues.js";
 import { drizzleOrm } from "./patterns/drizzle-orm.js";
 import { fastapi } from "./patterns/fastapi.js";
+import { fileUploadsObjectStorage } from "./patterns/file-uploads-object-storage.js";
 import { goApi } from "./patterns/go-api.js";
 import { graphqlApi } from "./patterns/graphql-api.js";
 import { kafkaEventDriven } from "./patterns/kafka-event-driven.js";
@@ -37,9 +43,15 @@ import { prismaOrm } from "./patterns/prisma-orm.js";
 import { redisCaching } from "./patterns/redis-caching.js";
 import { restApiDesign } from "./patterns/rest-api-design.js";
 import { supabaseRls } from "./patterns/supabase-rls.js";
+import { dunningChurnRecovery } from "./patterns/dunning-churn-recovery.js";
+import { invoicingTax } from "./patterns/invoicing-tax.js";
+import { marketplacePayouts } from "./patterns/marketplace-payouts.js";
+import { pricingPlanModeling } from "./patterns/pricing-plan-modeling.js";
 import { stripeBilling } from "./patterns/stripe-billing.js";
 import { subscriptionsUsageBilling } from "./patterns/subscriptions-usage-billing.js";
 import { awsLambda } from "./patterns/aws-lambda.js";
+import { backupDisasterRecovery } from "./patterns/backup-disaster-recovery.js";
+import { cdnEdgeCaching } from "./patterns/cdn-edge-caching.js";
 import { cloudflareWorkers } from "./patterns/cloudflare-workers.js";
 import { dockerContainers } from "./patterns/docker-containers.js";
 import { githubActionsCicd } from "./patterns/github-actions-cicd.js";
@@ -49,16 +61,31 @@ import { secretsEnvManagement } from "./patterns/secrets-env-management.js";
 import { terraformIac } from "./patterns/terraform-iac.js";
 import { vercelDeploy } from "./patterns/vercel-deploy.js";
 import { codeReview } from "./patterns/code-review.js";
+import { documentationEngineering } from "./patterns/documentation-engineering.js";
+import { featureFlagsProgressiveDelivery } from "./patterns/feature-flags-progressive-delivery.js";
 import { gitConventionalCommits } from "./patterns/git-conventional-commits.js";
+import { incidentResponsePostmortems } from "./patterns/incident-response-postmortems.js";
 import { pythonTooling } from "./patterns/python-tooling.js";
 import { monorepoPnpmTurborepo } from "./patterns/monorepo-pnpm-turborepo.js";
+import { releaseManagement } from "./patterns/release-management.js";
 import { testingVitestPlaywright } from "./patterns/testing-vitest-playwright.js";
+import { agentMemory } from "./patterns/agent-memory.js";
 import { aiAgents } from "./patterns/ai-agents.js";
+import { aiSafetyGuardrails } from "./patterns/ai-safety-guardrails.js";
 import { aiSdk } from "./patterns/ai-sdk.js";
 import { llmEvals } from "./patterns/llm-evals.js";
+import { llmStreamingUx } from "./patterns/llm-streaming-ux.js";
+import { llmStructuredOutputs } from "./patterns/llm-structured-outputs.js";
 import { mcpServerAuthoring } from "./patterns/mcp-server-authoring.js";
+import { modelRoutingCostControl } from "./patterns/model-routing-cost-control.js";
 import { ragEmbeddings } from "./patterns/rag-embeddings.js";
+import { accountTakeoverMfa } from "./patterns/account-takeover-mfa.js";
+import { apiRateLimitingAbuse } from "./patterns/api-rate-limiting-abuse.js";
+import { containerImageSecurity } from "./patterns/container-image-security.js";
+import { iamLeastPrivilege } from "./patterns/iam-least-privilege.js";
+import { piiDataPrivacy } from "./patterns/pii-data-privacy.js";
 import { supplyChainSecurity } from "./patterns/supply-chain-security.js";
+import { threatModeling } from "./patterns/threat-modeling.js";
 import { webSecurity } from "./patterns/web-security.js";
 
 /** The catalog. Generated; order is category-grouped. */
@@ -73,10 +100,15 @@ export const PATTERNS: Pattern[] = [
   nuxt,
   reactRouter,
   rails,
+  springBoot,
   sveltekit,
   swiftui,
+  clientStateManagement,
   coreWebVitals,
+  dataTablesGrids,
+  designSystemsStorybook,
   formsRhfZod,
+  internationalizationLocalization,
   reactTypescript,
   shadcnUi,
   tailwindCss,
@@ -87,6 +119,7 @@ export const PATTERNS: Pattern[] = [
   backgroundJobsQueues,
   drizzleOrm,
   fastapi,
+  fileUploadsObjectStorage,
   goApi,
   graphqlApi,
   kafkaEventDriven,
@@ -98,9 +131,15 @@ export const PATTERNS: Pattern[] = [
   redisCaching,
   restApiDesign,
   supabaseRls,
+  dunningChurnRecovery,
+  invoicingTax,
+  marketplacePayouts,
+  pricingPlanModeling,
   stripeBilling,
   subscriptionsUsageBilling,
   awsLambda,
+  backupDisasterRecovery,
+  cdnEdgeCaching,
   cloudflareWorkers,
   dockerContainers,
   githubActionsCicd,
@@ -110,16 +149,31 @@ export const PATTERNS: Pattern[] = [
   terraformIac,
   vercelDeploy,
   codeReview,
+  documentationEngineering,
+  featureFlagsProgressiveDelivery,
   gitConventionalCommits,
+  incidentResponsePostmortems,
   pythonTooling,
   monorepoPnpmTurborepo,
+  releaseManagement,
   testingVitestPlaywright,
+  agentMemory,
   aiAgents,
+  aiSafetyGuardrails,
   aiSdk,
   llmEvals,
+  llmStreamingUx,
+  llmStructuredOutputs,
   mcpServerAuthoring,
+  modelRoutingCostControl,
   ragEmbeddings,
+  accountTakeoverMfa,
+  apiRateLimitingAbuse,
+  containerImageSecurity,
+  iamLeastPrivilege,
+  piiDataPrivacy,
   supplyChainSecurity,
+  threatModeling,
   webSecurity,
 ];
 
