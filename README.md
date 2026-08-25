@@ -14,7 +14,7 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" alt="License: Apache-2.0"></a>
   <a href="https://www.npmjs.com/package/@pathrule/patterns"><img src="https://img.shields.io/npm/v/%40pathrule%2Fpatterns?label=%40pathrule%2Fpatterns" alt="npm"></a>
-  <img src="https://img.shields.io/badge/patterns-85-119e6f" alt="85 patterns">
+  <img src="https://img.shields.io/badge/patterns-100-119e6f" alt="100 patterns">
   <img src="https://img.shields.io/badge/content-first--party-119e6f" alt="First-party content">
 </p>
 
@@ -30,13 +30,14 @@ Everything here is **free and Apache-2.0**. Pathrule only ever charges for the h
 
 ## Catalog
 
-**85 patterns across 8 categories.** Each links to its full page; `Bundle` shows the mix of **R**ules, **M**emories, and **S**kills, composed to fit the topic rather than a fixed template.
+**100 patterns across 8 categories.** Each links to its full page; `Bundle` shows the mix of **R**ules, **M**emories, and **S**kills, composed to fit the topic rather than a fixed template.
 
 ### Framework
 
 | Pattern | What it gives you | Bundle | Token |
 | --- | --- | --- | --- |
 | [Angular](https://pathrule.io/patterns/angular) | Write signal-first, zoneless Angular with standalone components and no manual subscriptions. | 4R · 2M | `::pathrule:package:angular` |
+| [ASP.NET Core](https://pathrule.io/patterns/aspnet-core) | Build ASP.NET Core services with ordered middleware, validated options, safe lifetimes, and clear boundaries. | 3R · 4M · 1S | `::pathrule:package:aspnet-core` |
 | [Astro](https://pathrule.io/patterns/astro) | Ship content-first sites that send almost no JavaScript by default. | 3R · 3M · 1S | `::pathrule:package:astro` |
 | [Django](https://pathrule.io/patterns/django) | Write Django apps with a query-efficient ORM, safe settings, and async views that do not block. | 3R · 3M · 1S | `::pathrule:package:django` |
 | [Expo (React Native)](https://pathrule.io/patterns/expo-react-native) | Ship Expo apps with file-based routing, EAS Build, and safe OTA updates. | 3R · 3M · 1S | `::pathrule:package:expo-react-native` |
@@ -66,6 +67,7 @@ Everything here is **free and Apache-2.0**. Pathrule only ever charges for the h
 | [TanStack Query](https://pathrule.io/patterns/tanstack-query) | Treat the server as the source of truth and let the cache do the work. | 2R · 3M · 1S | `::pathrule:package:tanstack-query` |
 | [TypeScript Strict](https://pathrule.io/patterns/typescript-strict) | Make the compiler do the work: no any, no escape hatches, types that model reality. | 4R · 1M · 1S | `::pathrule:package:typescript-strict` |
 | [Web Accessibility](https://pathrule.io/patterns/web-accessibility) | Ship interfaces that work for keyboard, screen reader, and low-vision users by default. | 3R · 2M · 1S | `::pathrule:package:web-accessibility` |
+| [Web Animation and Motion](https://pathrule.io/patterns/web-animation-motion) | Use motion to explain state change while keeping interaction interruptible, accessible, and fast. | 2R · 2M | `::pathrule:package:web-animation-motion` |
 
 ### Backend
 
@@ -92,10 +94,15 @@ Everything here is **free and Apache-2.0**. Pathrule only ever charges for the h
 
 | Pattern | What it gives you | Bundle | Token |
 | --- | --- | --- | --- |
+| [B2B Billing and Net Terms](https://pathrule.io/patterns/b2b-billing-net-terms) | Connect purchase orders, approvals, due dates, partial payments, and collections in one receivable flow. | 2R · 2M · 1S | `::pathrule:package:b2b-billing-net-terms` |
 | [Dunning and Churn Recovery](https://pathrule.io/patterns/dunning-churn-recovery) | Recover failed payments with stateful retries, clear customer action, and safe access transitions. | 1R · 1M · 2S | `::pathrule:package:dunning-churn-recovery` |
 | [Invoicing and Tax](https://pathrule.io/patterns/invoicing-tax) | Keep invoice facts immutable, tax evidence traceable, and corrections auditable across providers. | 2R · 1M · 1S | `::pathrule:package:invoicing-tax` |
 | [Marketplace Payments and Payouts](https://pathrule.io/patterns/marketplace-payouts) | Keep charges, fees, seller balances, refunds, disputes, and payouts in one auditable ledger. | 3R · 2M · 1S | `::pathrule:package:marketplace-payouts` |
+| [Multi-Currency Payments](https://pathrule.io/patterns/multi-currency-payments) | Keep presentment, settlement, ledger, and reporting currencies explicit through every money movement. | 2R · 2M | `::pathrule:package:multi-currency-payments` |
+| [Paddle Billing](https://pathrule.io/patterns/paddle-billing) | Treat Paddle transactions and webhooks as evidence while your application owns access state. | 3R · 2M · 1S | `::pathrule:package:paddle-billing` |
+| [Payment Reconciliation Ledger](https://pathrule.io/patterns/payment-reconciliation-ledger) | Close the gap between internal orders, provider balances, bank payouts, fees, refunds, and disputes. | 2R · 3M · 2S | `::pathrule:package:payment-reconciliation-ledger` |
 | [Pricing and Plan Modeling](https://pathrule.io/patterns/pricing-plan-modeling) | Model products, prices, entitlements, and commercial terms without scattering plan-name checks. | 1R · 2M | `::pathrule:package:pricing-plan-modeling` |
+| [Refunds, Chargebacks, and Disputes](https://pathrule.io/patterns/refunds-chargebacks-disputes) | Model every payment reversal as an auditable state transition with deadlines, evidence, and ledger impact. | 3R · 3M · 2S | `::pathrule:package:refunds-chargebacks-disputes` |
 | [Stripe Billing](https://pathrule.io/patterns/stripe-billing) | Safe Stripe integration: verified webhooks, idempotent handlers, and the right API for the job. | 4R · 4M · 1S | `::pathrule:package:stripe-billing` |
 | [Subscriptions & Usage Billing](https://pathrule.io/patterns/subscriptions-usage-billing) | Ship metered subscriptions on Stripe Billing without dropping usage or double-charging customers. | 3R · 2M · 1S | `::pathrule:package:subscriptions-usage-billing` |
 
@@ -107,6 +114,7 @@ Everything here is **free and Apache-2.0**. Pathrule only ever charges for the h
 | [Backup and Disaster Recovery](https://pathrule.io/patterns/backup-disaster-recovery) | Define recovery objectives, isolate backups, prove restores, and rehearse service recovery under pressure. | 3R · 1M · 2S | `::pathrule:package:backup-disaster-recovery` |
 | [CDN and Edge Caching](https://pathrule.io/patterns/cdn-edge-caching) | Define cache keys, freshness, validation, privacy, invalidation, and origin protection as one contract. | 2R · 2M · 1S | `::pathrule:package:cdn-edge-caching` |
 | [Cloudflare Workers](https://pathrule.io/patterns/cloudflare-workers) | Write Workers that use bindings, respect the isolate model, and stay inside the CPU budget. | 2R · 2M · 1S | `::pathrule:package:cloudflare-workers` |
+| [DNS and Domain Management](https://pathrule.io/patterns/dns-domain-management) | Manage zones, delegation, DNSSEC, records, TTLs, and cutovers as reviewed production infrastructure. | 3R · 2M | `::pathrule:package:dns-domain-management` |
 | [Docker & Containers](https://pathrule.io/patterns/docker-containers) | Ship small, secure, cache-friendly container images by default. | 2R · 2M · 1S | `::pathrule:package:docker-containers` |
 | [GitHub Actions CI/CD](https://pathrule.io/patterns/github-actions-cicd) | Build hardened, fast, OIDC-deployed GitHub Actions pipelines that AI agents keep secure by default. | 3R · 1M · 1S | `::pathrule:package:github-actions-cicd` |
 | [Kubernetes + Helm](https://pathrule.io/patterns/kubernetes-helm) | Ship workloads that Kubernetes can schedule, restart, drain, and scale without dropping requests. | 5R · 2M · 1S | `::pathrule:package:kubernetes-helm` |
@@ -120,6 +128,7 @@ Everything here is **free and Apache-2.0**. Pathrule only ever charges for the h
 | Pattern | What it gives you | Bundle | Token |
 | --- | --- | --- | --- |
 | [Code Review](https://pathrule.io/patterns/code-review) | Ship small pull requests that reviewers can approve fast with confidence. | 3R · 1M · 1S | `::pathrule:package:code-review` |
+| [Developer Onboarding](https://pathrule.io/patterns/developer-onboarding) | Turn a new contributor's first setup and change into a repeatable test of the engineering system. | 2R · 4M · 2S | `::pathrule:package:developer-onboarding` |
 | [Documentation Engineering](https://pathrule.io/patterns/documentation-engineering) | Treat operational and developer documentation as owned, testable interfaces that change with the system. | 1R · 2M | `::pathrule:package:documentation-engineering` |
 | [Feature Flags and Progressive Delivery](https://pathrule.io/patterns/feature-flags-progressive-delivery) | Separate deployment from exposure with typed flags, deterministic targeting, rollback, and retirement. | 2R · 2M · 1S | `::pathrule:package:feature-flags-progressive-delivery` |
 | [Git & Conventional Commits](https://pathrule.io/patterns/git-conventional-commits) | Keep history readable and releases automatic with small commits and Conventional Commits. | 2R · 1M · 1S | `::pathrule:package:git-conventional-commits` |
@@ -127,6 +136,7 @@ Everything here is **free and Apache-2.0**. Pathrule only ever charges for the h
 | [Modern Python Tooling (uv + Ruff)](https://pathrule.io/patterns/python-tooling) | Set up Python projects the 2026 way: one fast tool for envs and deps, one for lint and format. | 2R · 2M · 1S | `::pathrule:package:python-tooling` |
 | [Monorepo (pnpm + Turborepo)](https://pathrule.io/patterns/monorepo-pnpm-turborepo) | Keep a pnpm and Turborepo monorepo fast, cacheable, and boundary-clean. | 3R · 2M · 1S | `::pathrule:package:monorepo-pnpm-turborepo` |
 | [Release Management](https://pathrule.io/patterns/release-management) | Promote immutable artifacts with compatibility evidence, explicit approval, rollback, and release notes. | 2R · 1M · 2S | `::pathrule:package:release-management` |
+| [Technical Debt Management](https://pathrule.io/patterns/technical-debt-management) | Turn costly shortcuts into owned, evidence-backed decisions with triggers and a credible payoff path. | 1R · 2M · 1S | `::pathrule:package:technical-debt-management` |
 | [Testing (Vitest + Playwright)](https://pathrule.io/patterns/testing-vitest-playwright) | Unit test behavior with Vitest, drive real user flows with Playwright, and keep both green in CI. | 3R · 2M · 1S | `::pathrule:package:testing-vitest-playwright` |
 
 ### AI
@@ -138,10 +148,12 @@ Everything here is **free and Apache-2.0**. Pathrule only ever charges for the h
 | [AI Safety Guardrails](https://pathrule.io/patterns/ai-safety-guardrails) | Classify risk, isolate untrusted content, authorize tools, validate output, and escalate safely. | 3R · 1M · 1S | `::pathrule:package:ai-safety-guardrails` |
 | [AI SDK (Vercel AI SDK)](https://pathrule.io/patterns/ai-sdk) | Build streaming, tool-calling LLM features with one typed API across every provider. | 3R · 2M · 1S | `::pathrule:package:ai-sdk` |
 | [LLM Evaluations & Testing](https://pathrule.io/patterns/llm-evals) | Catch hallucinations and quality regressions before users do, with evals on every prompt change. | 1R · 2M · 2S | `::pathrule:package:llm-evals` |
+| [LLM Observability and Tracing](https://pathrule.io/patterns/llm-observability-tracing) | Trace model, retrieval, tool, safety, token, cost, and user outcomes without leaking prompt content. | 2R · 4M · 1S | `::pathrule:package:llm-observability-tracing` |
 | [LLM Streaming UX](https://pathrule.io/patterns/llm-streaming-ux) | Design typed stream events, resumable state, cancellation, and honest partial-output interactions. | 1R · 2M · 2S | `::pathrule:package:llm-streaming-ux` |
 | [LLM Structured Outputs](https://pathrule.io/patterns/llm-structured-outputs) | Treat model output as untrusted data that must satisfy a versioned schema before use. | 2R · 1M · 1S | `::pathrule:package:llm-structured-outputs` |
 | [MCP Server Authoring](https://pathrule.io/patterns/mcp-server-authoring) | Build Model Context Protocol servers whose tools an LLM can actually call correctly and safely. | 3R · 1M · 1S | `::pathrule:package:mcp-server-authoring` |
 | [Model Routing and Cost Control](https://pathrule.io/patterns/model-routing-cost-control) | Route AI work by capability, risk, latency, reliability, and budget with observable fallbacks. | 3R · 2M · 1S | `::pathrule:package:model-routing-cost-control` |
+| [Prompt Versioning and Management](https://pathrule.io/patterns/prompt-versioning-management) | Ship prompts as immutable, reviewable artifacts with typed inputs, eval evidence, rollout, and rollback. | 2R · 2M · 2S | `::pathrule:package:prompt-versioning-management` |
 | [RAG & Embeddings](https://pathrule.io/patterns/rag-embeddings) | Ground LLM answers in your own data with retrieval that returns the right chunks, not just similar ones. | 2R · 3M · 1S | `::pathrule:package:rag-embeddings` |
 
 ### Security
@@ -150,10 +162,13 @@ Everything here is **free and Apache-2.0**. Pathrule only ever charges for the h
 | --- | --- | --- | --- |
 | [Account Takeover and MFA](https://pathrule.io/patterns/account-takeover-mfa) | Protect sign-in, recovery, factor changes, and sensitive actions as one abuse-resistant system. | 3R · 1M · 1S | `::pathrule:package:account-takeover-mfa` |
 | [API Rate Limiting and Abuse](https://pathrule.io/patterns/api-rate-limiting-abuse) | Bound request frequency, concurrency, payload cost, and expensive business actions. | 3R · 1M | `::pathrule:package:api-rate-limiting-abuse` |
+| [Authorization with RBAC and ReBAC](https://pathrule.io/patterns/authorization-rbac-rebac) | Authorize every action against the real resource, relationship, tenant, and current policy state. | 4R · 2M · 1S | `::pathrule:package:authorization-rbac-rebac` |
 | [Container and Image Security](https://pathrule.io/patterns/container-image-security) | Build traceable images, minimize contents, verify provenance, and constrain runtime power. | 2R · 1M · 2S | `::pathrule:package:container-image-security` |
 | [IAM and Least Privilege](https://pathrule.io/patterns/iam-least-privilege) | Keep human and workload access temporary, scoped, reviewable, and deny-first. | 3R · 1M · 1S | `::pathrule:package:iam-least-privilege` |
 | [PII and Data Privacy](https://pathrule.io/patterns/pii-data-privacy) | Minimize personal data, preserve purpose, enforce access, and make deletion real. | 3R · 2M | `::pathrule:package:pii-data-privacy` |
+| [Security Audit Logging](https://pathrule.io/patterns/security-audit-logging) | Record security-relevant actions as trustworthy evidence without turning logs into a secret database. | 3R · 2M | `::pathrule:package:security-audit-logging` |
 | [Software Supply Chain Security](https://pathrule.io/patterns/supply-chain-security) | Stop a poisoned dependency from running in your build, CI, and production. | 4R · 1M · 1S | `::pathrule:package:supply-chain-security` |
+| [SSRF and Egress Security](https://pathrule.io/patterns/ssrf-egress-security) | Treat server-side URL fetching as a privileged network capability with validation at every hop. | 5R · 1M · 1S | `::pathrule:package:ssrf-egress-security` |
 | [Threat Modeling](https://pathrule.io/patterns/threat-modeling) | Model trust boundaries, rank realistic abuse paths, and turn threats into tested requirements. | 1R · 1M · 2S | `::pathrule:package:threat-modeling` |
 | [Web Security (OWASP)](https://pathrule.io/patterns/web-security) | Build web apps that deny by default, distrust every input, and ship secure headers. | 3R · 2M · 1S | `::pathrule:package:web-security` |
 
