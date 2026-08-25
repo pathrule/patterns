@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const observability: Pattern = {
   "slug": "observability",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Observability",
   "tagline": "Emit correlated logs, metrics, and traces that make incidents debuggable.",
   "description": "A ready-to-use bundle of rules, memories, and a review checklist for instrumenting services with OpenTelemetry. It encodes 2026 best practices: OTLP-first telemetry, structured JSON logs carrying trace and span ids, low-cardinality metrics, and SLO burn-rate alerts so your agent stops generating print-statement debugging and noisy page-on-everything alerting.",
@@ -10,8 +10,13 @@ export const observability: Pattern = {
   "icon": "activity",
   "color": "bg-orange-500/10 text-orange-600 dark:bg-orange-400/15 dark:text-orange-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
@@ -19,7 +24,7 @@ export const observability: Pattern = {
     }
   ],
   "metaTitle": "Observability pattern for AI coding agents",
-  "metaDescription": "Teach your AI coding agent to instrument services with OpenTelemetry: structured logs with trace ids, low-cardinality metrics, OTLP export, SLOs, and burn-rate alerts.",
+  "metaDescription": "Observability pattern for AI coding agents: structured JSON logs tied to the active trace, low-cardinality metrics, OTLP export, and burn-rate SLO alerting.",
   "problem": "AI agents reach for ad-hoc console logs and unbounded custom metrics, producing telemetry that cannot be correlated across signals and alerts that page on noise instead of user impact.",
   "audience": "Backend and platform teams running production services who own their on-call and SLOs",
   "prevents": [

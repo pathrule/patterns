@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const goApi: Pattern = {
   "slug": "go-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Go API (Gin / Echo)",
   "tagline": "Build idiomatic Go HTTP services with honest errors, context propagation, and validated input.",
   "description": "An opinionated baseline for HTTP APIs in Go with Gin or Echo. It leans into what makes Go services reliable: errors are values you handle and wrap rather than swallow, context flows through every call for cancellation and deadlines, and request bodies are bound and validated before they reach business logic. It also keeps the layering clean so handlers stay thin and the database, not the framework, owns the data. Go's draw for cloud-native and high-performance backends is exactly this kind of boring reliability.",
@@ -10,16 +10,21 @@ export const goApi: Pattern = {
   "icon": "hexagon",
   "color": "bg-cyan-500/10 text-cyan-600 dark:bg-cyan-400/15 dark:text-cyan-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Go API (Gin / Echo) pattern for AI coding agents",
-  "metaDescription": "Pathrule pattern for Go HTTP APIs on Gin or Echo: error values handled and wrapped, context propagation for cancellation, struct-tag request validation, and clean handler/service/repository layering, tuned for AI coding agents.",
+  "metaTitle": "Go HTTP API pattern for AI coding agents",
+  "metaDescription": "Go API pattern for AI coding agents: handle and wrap every error, propagate context deadlines, validate input at the handler, and keep handlers thin.",
   "problem": "AI agents writing Go ignore returned errors, drop the request context, bind request bodies without validating, and pile database calls into handlers.",
   "audience": "Backend teams building HTTP services in Go with Gin or Echo",
   "prevents": [

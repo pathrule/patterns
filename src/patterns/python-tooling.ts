@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const pythonTooling: Pattern = {
   "slug": "python-tooling",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Modern Python Tooling (uv + Ruff)",
   "tagline": "Set up Python projects the 2026 way: one fast tool for envs and deps, one for lint and format.",
   "description": "The current standard for setting up and maintaining a Python project. uv replaces the tangle of pip, venv, pip-tools, and pyenv with one fast tool that manages the interpreter, the virtual environment, dependencies, and a committed lockfile. Ruff replaces Black, isort, and Flake8 with one fast linter and formatter. A type checker and pytest round it out, all configured in a single pyproject.toml. This is the project-hygiene layer that sits underneath any Python app, including a FastAPI service.",
@@ -10,16 +10,21 @@ export const pythonTooling: Pattern = {
   "icon": "boxes",
   "color": "bg-blue-500/10 text-blue-600 dark:bg-blue-400/15 dark:text-blue-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata, and scoped the CI memory to /.github/workflows."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Modern Python Tooling (uv + Ruff) pattern for AI coding agents",
-  "metaDescription": "Pathrule pattern for modern Python tooling: uv for interpreter, venv, dependencies, and lockfile; Ruff for lint and format; a type checker and pytest; all configured in pyproject.toml, tuned for AI coding agents.",
+  "metaTitle": "Python uv and Ruff pattern for AI agents",
+  "metaDescription": "Python tooling pattern for AI coding agents: run the project on uv with a committed lockfile, gate on Ruff and a type checker, and configure it in pyproject.",
   "problem": "AI agents set up Python projects with raw pip and venv, no lockfile, scattered config, and Black/isort/Flake8, instead of the faster, single-source-of-truth uv + Ruff workflow.",
   "audience": "Python teams standardizing project setup, dependencies, and code quality",
   "prevents": [
@@ -31,7 +36,8 @@ export const pythonTooling: Pattern = {
   "appliesTo": {
     "paths": [
       "/",
-      "/pyproject.toml"
+      "/pyproject.toml",
+      "/.github/workflows"
     ],
     "stacks": [
       "python",
@@ -74,7 +80,7 @@ export const pythonTooling: Pattern = {
     },
     {
       "kind": "memory",
-      "nodePath": "/",
+      "nodePath": "/.github/workflows",
       "title": "Testing and reproducible CI with uv",
       "summary": "Run pytest through uv, install from the lockfile in CI with uv sync --frozen, and cache uv for fast, deterministic pipelines.",
       "body": "CI should run the exact environment the lockfile describes, fast, with no surprise resolution.\n\n- Run tests with `uv run pytest`. Keep tests under `tests/`, name them so pytest discovers them, and use fixtures for shared setup. uv ensures pytest runs in the locked environment.\n- In CI, install with `uv sync --frozen` (or `--locked`) so the pipeline fails if `uv.lock` is out of date rather than silently resolving new versions. This is the reproducibility guarantee.\n- Cache uv's download/cache directory in CI to make installs fast; uv is already much faster than pip, and caching compounds it.\n- Use the official `astral-sh/setup-uv` action (pinned) to install uv in GitHub Actions, then run lint, type-check, and test as gated steps.\n\nSee / for the uv-and-lockfile and lint/format/type-check rules; see the github-actions-cicd and supply-chain-security patterns for CI hardening."

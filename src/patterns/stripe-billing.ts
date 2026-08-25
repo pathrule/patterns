@@ -2,24 +2,29 @@ import type { Pattern } from "../types.js";
 
 export const stripeBilling: Pattern = {
   "slug": "stripe-billing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Stripe Billing",
   "tagline": "Safe Stripe integration: verified webhooks, idempotent handlers, and the right API for the job.",
-  "description": "Rules, memories, and a review skill for adding Stripe billing to a product. Pre-scoped to your Stripe API routes and serverless functions so your AI assistant verifies webhook signatures, keeps handlers idempotent, and picks the correct payment API.",
+  "description": "Rules, memories, and a review skill for adding Stripe billing to a product. Pre-scoped to your Stripe API routes and serverless functions so your AI assistant verifies webhook signatures, keeps handlers idempotent, and picks the correct payment API. The bundle assumes webhooks are the source of truth for entitlements, which is the difference between a billing integration that survives a failed redirect and one that silently grants access.",
   "category": "Billing",
   "icon": "credit-card",
   "color": "bg-violet-500/10 text-violet-600 dark:bg-violet-400/15 dark:text-violet-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Stripe billing patterns for AI coding agents",
-  "metaDescription": "A ready-to-use Pathrule pattern for Stripe: webhook signature verification, idempotent handlers, Checkout vs PaymentIntents guidance, and a billing review skill.",
+  "metaTitle": "Stripe billing pattern for AI coding agents",
+  "metaDescription": "Stripe pattern for AI coding agents: verify webhook signatures on the raw body, keep handlers idempotent, and grant entitlements from webhooks, not redirects.",
   "problem": "Billing code trusts unverified webhooks or double-applies retried events, causing security holes and wrong charges.",
   "audience": "teams adding subscriptions or payments with Stripe",
   "prevents": [
@@ -34,7 +39,10 @@ export const stripeBilling: Pattern = {
       "/supabase/functions"
     ],
     "stacks": [
-      "stripe"
+      "stripe",
+      "billing",
+      "webhooks",
+      "payments"
     ],
     "packages": [
       "stripe"

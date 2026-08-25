@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const monorepoPnpmTurborepo: Pattern = {
   "slug": "monorepo-pnpm-turborepo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Monorepo (pnpm + Turborepo)",
   "tagline": "Keep a pnpm and Turborepo monorepo fast, cacheable, and boundary-clean.",
   "description": "A pattern bundle for JavaScript and TypeScript monorepos built on pnpm workspaces and Turborepo. It codifies the rules that keep task pipelines deterministic and cacheable, package boundaries explicit, and dependency versions unified. Use it so AI agents and humans both extend the repo without breaking the cache or leaking cross-package imports.",
@@ -10,16 +10,21 @@ export const monorepoPnpmTurborepo: Pattern = {
   "icon": "folder-tree",
   "color": "bg-sky-500/10 text-sky-600 dark:bg-sky-400/15 dark:text-sky-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Monorepo (pnpm + Turborepo) pattern for AI coding agents",
-  "metaDescription": "Pathrule pattern for pnpm + Turborepo monorepos: cacheable task pipelines, clean package boundaries, catalog-pinned versions, and shared configs for AI agents.",
+  "metaTitle": "pnpm and Turborepo pattern for AI agents",
+  "metaDescription": "Monorepo pattern for AI coding agents: Turborepo tasks that declare inputs and outputs, imports through public entry points, and pinned tool and dep versions.",
   "problem": "Monorepo task pipelines silently lose cache hits and packages drift across boundaries as the repo grows.",
   "audience": "Teams running a JavaScript or TypeScript monorepo on pnpm workspaces and Turborepo.",
   "prevents": [

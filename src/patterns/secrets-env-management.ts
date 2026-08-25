@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const secretsEnvManagement: Pattern = {
   "slug": "secrets-env-management",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Secrets & Environment Management",
   "tagline": "Keep secrets out of git, inject them at runtime, and rotate them automatically.",
   "description": "A pattern bundle for handling API keys, tokens, and credentials safely across local development, CI, and production. It enforces .env hygiene, pushes teams toward a managed secret store with runtime injection and OIDC, and ships a review checklist so no credential ever lands in source control or a build log.",
@@ -10,16 +10,21 @@ export const secretsEnvManagement: Pattern = {
   "icon": "lock-keyhole",
   "color": "bg-red-500/10 text-red-600 dark:bg-red-400/15 dark:text-red-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Secrets & Environment Management for AI Coding Agents",
-  "metaDescription": "Rules, memories, and a review checklist that keep AI coding agents from committing secrets, teach safe .env hygiene, secret managers, OIDC, and credential rotation.",
+  "metaTitle": "Secrets management pattern for AI agents",
+  "metaDescription": "Secrets pattern for AI coding agents: nothing live in git history, server secrets never in the client bundle, OIDC in CI, and rotation with least privilege.",
   "problem": "Secrets keep leaking into commits, build logs, and client bundles because there is no enforced convention for where credentials live or how they reach runtime.",
   "audience": "Backend and platform teams shipping services with API keys, database credentials, and CI/CD pipelines.",
   "prevents": [

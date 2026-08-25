@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const restApiDesign: Pattern = {
   "slug": "rest-api-design",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "REST / HTTP API Design",
   "tagline": "Design HTTP APIs that stay predictable, safe to retry, and easy to evolve.",
   "description": "A 2026 HTTP API design pattern for backend teams shipping REST endpoints. It standardizes resource naming and status codes, mandates RFC 9457 problem details for errors, cursor pagination for collections, idempotency keys for unsafe writes, and a deprecation discipline so versions retire cleanly instead of breaking clients.",
@@ -10,16 +10,21 @@ export const restApiDesign: Pattern = {
   "icon": "network",
   "color": "bg-teal-500/10 text-teal-600 dark:bg-teal-400/15 dark:text-teal-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "REST / HTTP API Design pattern for AI coding agents",
-  "metaDescription": "Teach your AI coding agent modern HTTP API design: resource naming, correct status codes, RFC 9457 errors, cursor pagination, idempotency keys, and clean versioning.",
+  "metaTitle": "REST and HTTP API pattern for AI agents",
+  "metaDescription": "REST API pattern for AI coding agents: honest HTTP semantics, idempotency keys on unsafe writes, RFC 9457 problem details, and paginated collection contracts.",
   "problem": "Agents ship inconsistent endpoints with ad-hoc error shapes, offset pagination, no retry safety, and breaking version changes that silently break clients.",
   "audience": "Backend and platform teams building or maintaining public and internal REST/HTTP APIs.",
   "prevents": [

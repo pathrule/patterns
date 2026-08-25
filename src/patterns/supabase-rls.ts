@@ -2,24 +2,29 @@ import type { Pattern } from "../types.js";
 
 export const supabaseRls: Pattern = {
   "slug": "supabase-rls",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Supabase + RLS",
   "tagline": "Row Level Security done right: deny by default, user JWT only, and a clean migration workflow.",
-  "description": "Rules, memories, and a review skill for Supabase Postgres projects that take Row Level Security seriously. Pre-scoped to your supabase directory so your AI assistant enforces RLS, keeps the service role out of clients, and follows a disciplined migration flow.",
+  "description": "Rules, memories, and a review skill for Supabase Postgres projects that take Row Level Security seriously. Pre-scoped to your supabase directory so your AI assistant enforces RLS, keeps the service role out of clients, and follows a disciplined migration flow. It also covers the migration workflow, so policies are versioned with the schema instead of being clicked into the dashboard and lost.",
   "category": "Backend",
   "icon": "database",
   "color": "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Supabase Row Level Security patterns for AI coding agents",
-  "metaDescription": "A ready-to-use Pathrule pattern for Supabase: RLS enabled by default, user JWT instead of the service role, a helper-function access model, and a migration review skill.",
+  "metaTitle": "Supabase RLS pattern for AI coding agents",
+  "metaDescription": "Supabase pattern for AI coding agents: row level security on every table with deny by default, service role key server-side only, and indexed policy columns.",
   "problem": "Postgres tables ship without Row Level Security, or the service role key sneaks into client paths, leaving data open to anyone.",
   "audience": "teams building on Supabase Postgres with multi-tenant or per-user data",
   "prevents": [
@@ -67,7 +72,7 @@ export const supabaseRls: Pattern = {
       "nodePath": "/supabase/migrations",
       "title": "Index every column used in RLS policy predicates",
       "summary": "An unindexed column in a USING or WITH CHECK expression causes a full-table scan on every row-level check.",
-      "body": "Postgres evaluates each RLS policy's `USING` and `WITH CHECK` expressions once per row that the query touches. An expression that references an unindexed column forces a sequential scan on every row access, not just on the query plan — the cost is invisible in `EXPLAIN` for the outer query but shows up as degraded performance under load.\n\n- Add a B-tree index on every column that appears in a `USING (...)` or `WITH CHECK (...)` expression, particularly `user_id`, `workspace_id`, `tenant_id`, and any other access-boundary column.\n- For policies that call `auth.uid()`, the `user_id` column they compare against must be indexed; the `auth.uid()` itself is a function call that Postgres inlines as a constant per statement, so it is not the bottleneck, but the column scan is.\n- If using a `SECURITY DEFINER` helper function (see the access-helper memory), index the columns inside that function's WHERE clause, not just the surface-level expression in the policy.\n- Run `EXPLAIN ANALYZE` on representative queries before and after adding RLS to confirm the policy predicates are not adding full-table sequential scans.",
+      "body": "Postgres evaluates each RLS policy's `USING` and `WITH CHECK` expressions once per row that the query touches. An expression that references an unindexed column forces a sequential scan on every row access, not just on the query plan, and the cost is invisible in `EXPLAIN` for the outer query but shows up as degraded performance under load.\n\n- Add a B-tree index on every column that appears in a `USING (...)` or `WITH CHECK (...)` expression, particularly `user_id`, `workspace_id`, `tenant_id`, and any other access-boundary column.\n- For policies that call `auth.uid()`, the `user_id` column they compare against must be indexed; the `auth.uid()` itself is a function call that Postgres inlines as a constant per statement, so it is not the bottleneck, but the column scan is.\n- If using a `SECURITY DEFINER` helper function (see the access-helper memory), index the columns inside that function's WHERE clause, not just the surface-level expression in the policy.\n- Run `EXPLAIN ANALYZE` on representative queries before and after adding RLS to confirm the policy predicates are not adding full-table sequential scans.",
       "scopeType": "folder",
       "priority": "medium",
       "enforcement": "advisory"

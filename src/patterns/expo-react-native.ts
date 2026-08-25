@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const expoReactNative: Pattern = {
   "slug": "expo-react-native",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Expo (React Native)",
   "tagline": "Ship Expo apps with file-based routing, EAS Build, and safe OTA updates.",
   "description": "A guardrail bundle for modern Expo (SDK 56+) React Native projects on the New Architecture. It keeps Expo Router navigation typed and predictable, treats the app config as the single source of native truth via Continuous Native Generation, and prevents the classic OTA crash where a JavaScript update references native code that isn't in the installed binary. Built for teams shipping with EAS Build and EAS Update.",
@@ -10,16 +10,21 @@ export const expoReactNative: Pattern = {
   "icon": "smartphone",
   "color": "bg-indigo-500/10 text-indigo-600 dark:bg-indigo-400/15 dark:text-indigo-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Expo (React Native) AI Coding Pattern for Cursor & Claude",
-  "metaDescription": "Pathrule pattern that teaches AI agents Expo SDK 56 conventions: typed Expo Router, EAS Build via CNG, and runtimeVersion-safe OTA updates so generated code ships without crashing.",
+  "metaTitle": "Expo and React Native pattern for AI agents",
+  "metaDescription": "Expo pattern for AI coding agents: keep native changes CNG-safe, bump runtimeVersion before every OTA update, and route with typed Expo Router links.",
   "problem": "AI agents edit native files directly and push OTA updates that reference native modules missing from the installed binary, crashing production apps.",
   "audience": "Teams building cross-platform Expo apps with EAS Build and EAS Update.",
   "prevents": [

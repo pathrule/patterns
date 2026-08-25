@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const nodeTsApiHono: Pattern = {
   "slug": "node-ts-api-hono",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Node + TypeScript API (Hono)",
   "tagline": "Build type-safe Hono APIs with chained routes, schema validation, and a typed RPC client.",
   "description": "An opinionated baseline for shipping Hono APIs on Node 22 with end-to-end type safety. It covers route chaining for RPC inference, Standard Schema validation at the edge of every handler, centralized error handling with HTTPException, and the conventions that keep the client and server in sync.",
@@ -10,16 +10,21 @@ export const nodeTsApiHono: Pattern = {
   "icon": "server",
   "color": "bg-amber-500/10 text-amber-600 dark:bg-amber-400/15 dark:text-amber-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Node + TypeScript API (Hono) pattern for AI coding agents",
-  "metaDescription": "Pathrule pattern for Node + TypeScript APIs on Hono: chained routes for RPC, Standard Schema validation, HTTPException error handling, and a typed RPC client, tuned for AI coding agents.",
+  "metaTitle": "Hono TypeScript API pattern for AI agents",
+  "metaDescription": "Hono pattern for AI coding agents: chain routes and export AppType for typed RPC, validate every input with a schema, and centralize errors through onError.",
   "problem": "AI agents writing Hono APIs break RPC type inference, scatter validation, and return inconsistent error shapes.",
   "audience": "Backend teams building type-safe Hono APIs on Node or the edge",
   "prevents": [
@@ -53,7 +58,10 @@ export const nodeTsApiHono: Pattern = {
       "nodePath": "/src/routes",
       "title": "Chain routes and export AppType for RPC",
       "summary": "Define routes as one chained expression and export typeof the chained app so the RPC client infers types instead of unknown.",
-      "body": "The Hono RPC client only sees routes that belong to a single chained expression. Break the chain and `hc<AppType>` resolves responses to `unknown`.\n\n- Define handlers by chaining directly off `new Hono()`, for example `const routes = new Hono().get(...).post(...)`. Do not assign `app` and then call `app.get(...)` on later statements; reassigned, line-by-line definitions are not captured by `typeof`.\n- Mount sub-apps inline inside the same chain with `.route('/books', books)`, never as a standalone `app.route(...)` statement after the chain.\n- Export the route tree as a type at the top level: `export type AppType = typeof routes`. Import it with `import type { AppType }` on the client side.\n- Set `\"strict\": true` in the tsconfig of both the server and any client package. Hono RPC type inference depends on strict mode; without it inference silently degrades.\n- If you must split handlers out of the chain, use `factory.createHandlers()` from `hono/factory` so path-param and validator types still infer. Do not write Rails-style controller files that take a bare `Context`."
+      "body": "The Hono RPC client only sees routes that belong to a single chained expression. Break the chain and `hc<AppType>` resolves responses to `unknown`.\n\n- Define handlers by chaining directly off `new Hono()`, for example `const routes = new Hono().get(...).post(...)`. Do not assign `app` and then call `app.get(...)` on later statements; reassigned, line-by-line definitions are not captured by `typeof`.\n- Mount sub-apps inline inside the same chain with `.route('/books', books)`, never as a standalone `app.route(...)` statement after the chain.\n- Export the route tree as a type at the top level: `export type AppType = typeof routes`. Import it with `import type { AppType }` on the client side.\n- Set `\"strict\": true` in the tsconfig of both the server and any client package. Hono RPC type inference depends on strict mode; without it inference silently degrades.\n- If you must split handlers out of the chain, use `factory.createHandlers()` from `hono/factory` so path-param and validator types still infer. Do not write Rails-style controller files that take a bare `Context`.",
+      "scopeType": "folder",
+      "priority": "medium",
+      "enforcement": "strict"
     },
     {
       "kind": "rule",

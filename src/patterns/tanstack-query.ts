@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const tanstackQuery: Pattern = {
   "slug": "tanstack-query",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "TanStack Query",
   "tagline": "Treat the server as the source of truth and let the cache do the work.",
   "description": "A guardrail bundle for TanStack Query v5 in React apps. It enforces structured query key factories, deliberate staleTime, and mutation-driven invalidation so server state stays consistent. The rules keep data fetching out of effects and push every query through reusable queryOptions.",
@@ -10,16 +10,21 @@ export const tanstackQuery: Pattern = {
   "icon": "refresh-cw",
   "color": "bg-rose-500/10 text-rose-600 dark:bg-rose-400/15 dark:text-rose-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "TanStack Query Pattern for AI Coding Agents",
-  "metaDescription": "Pathrule pattern that teaches AI coding agents to use TanStack Query v5 correctly: query key factories, staleTime, mutation invalidation, and no fetching in useEffect.",
+  "metaTitle": "TanStack Query pattern for AI coding agents",
+  "metaDescription": "TanStack Query pattern for AI coding agents: never fetch server state in an effect, invalidate related queries after a mutation, and key the cache in factories.",
   "problem": "Server state drifts out of sync because queries use ad-hoc keys, fetch inside effects, and never invalidate after mutations.",
   "audience": "React and Next.js teams using TanStack Query v5 for server state",
   "prevents": [

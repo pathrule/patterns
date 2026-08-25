@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const tailwindCss: Pattern = {
   "slug": "tailwind-css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Tailwind CSS",
   "tagline": "Keep Tailwind v4 utility code clean, token-driven, and free of arbitrary-value sprawl.",
   "description": "A pattern bundle for teams building UIs with Tailwind CSS v4. It encodes the CSS-first workflow (configure in CSS with @theme, no tailwind.config.js), enforces design tokens over arbitrary values, and standardizes class ordering and conditional-class handling. Use it so AI agents and humans write Tailwind that matches your design system instead of one-off magic numbers.",
@@ -10,16 +10,21 @@ export const tailwindCss: Pattern = {
   "icon": "wind",
   "color": "bg-cyan-500/10 text-cyan-600 dark:bg-cyan-400/15 dark:text-cyan-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Tailwind CSS rules for AI coding agents | Pathrule",
-  "metaDescription": "Pathrule pattern for Tailwind CSS v4: CSS-first @theme tokens, no arbitrary-value sprawl, sorted classes, and a review skill so AI agents ship on-system UI.",
+  "metaTitle": "Tailwind CSS v4 pattern for AI coding agents",
+  "metaDescription": "Tailwind v4 pattern for AI coding agents: no dynamic class strings, design tokens over arbitrary values, and CSS-first theming through @theme, not a config.",
   "problem": "AI agents and rushed PRs fill Tailwind markup with arbitrary values and ad-hoc classes that drift from the design system and bloat the CSS bundle.",
   "audience": "Frontend and product teams building component-driven UIs with Tailwind CSS v4 and React or other JSX frameworks.",
   "prevents": [

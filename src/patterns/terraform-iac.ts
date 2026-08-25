@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const terraformIac: Pattern = {
   "slug": "terraform-iac",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Terraform / IaC",
   "tagline": "Ship Terraform with locked remote state, pinned versions, and a plan-gated CI pipeline.",
   "description": "A guardrail bundle for teams managing infrastructure as code with Terraform 1.11+ on AWS. It enforces remote state with native S3 locking, pinned providers and modules, secrets kept out of state via write-only arguments, and a CI pipeline that always reviews a plan before apply. Built so AI agents make the same safe choices a senior platform engineer would.",
@@ -10,16 +10,21 @@ export const terraformIac: Pattern = {
   "icon": "cloud-cog",
   "color": "bg-purple-500/10 text-purple-600 dark:bg-purple-400/15 dark:text-purple-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Terraform / IaC pattern for AI coding agents | Pathrule",
-  "metaDescription": "Pathrule rules, memories, and a review skill that keep AI agents shipping safe Terraform: locked remote state, pinned versions, plan-gated CI, and no secrets in state.",
+  "metaTitle": "Terraform IaC pattern for AI coding agents",
+  "metaDescription": "Terraform pattern for AI coding agents: locked remote state, secrets kept out of state, pinned module and provider versions, and plan-gated OIDC pipelines.",
   "problem": "AI agents and rushed PRs ship Terraform with unlocked state, drifting versions, secrets baked into state, and applies that never matched a reviewed plan.",
   "audience": "Platform, DevOps, and SRE teams running Terraform 1.11+ against AWS",
   "prevents": [

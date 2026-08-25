@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const nextjsAppRouter: Pattern = {
   "slug": "nextjs-app-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Next.js App Router",
   "tagline": "Battle-tested conventions for a Next.js App Router codebase, scoped to the paths they belong to.",
   "description": "Rules, memories, and a review skill for teams building on the Next.js App Router. Each piece is pre-scoped so your AI assistant applies it only where it is relevant: server and client boundaries, caching, and secret safety in the app directory, plus a route review checklist at the root.",
@@ -10,16 +10,21 @@ export const nextjsAppRouter: Pattern = {
   "icon": "layout-panel-left",
   "color": "bg-blue-500/10 text-blue-600 dark:bg-blue-400/15 dark:text-blue-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Next.js App Router patterns for AI coding agents",
-  "metaDescription": "A ready-to-use Pathrule pattern for Next.js App Router projects: server-component defaults, caching policy, secret safety, and a route review skill, scoped to the right paths.",
+  "metaTitle": "Next.js App Router pattern for AI agents",
+  "metaDescription": "Next.js App Router pattern for AI coding agents: await params and cookies, keep Server Components the default, and treat caching as opt-in with use cache.",
   "problem": "App Router teams keep relitigating the same server/client and caching decisions, and AI assistants guess them differently every time.",
   "audience": "teams building product UI and routes on the Next.js App Router",
   "prevents": [

@@ -2,24 +2,29 @@ import type { Pattern } from "../types.js";
 
 export const reactTypescript: Pattern = {
   "slug": "react-typescript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "React + TypeScript",
   "tagline": "Pragmatic React and TypeScript conventions: typed props, accessible UI, and predictable hooks.",
-  "description": "Rules, memories, and a review skill for React codebases written in TypeScript. Pre-scoped to your source and component directories so your AI assistant writes typed, accessible, and predictable components.",
+  "description": "Rules, memories, and a review skill for React codebases written in TypeScript. Pre-scoped to your source and component directories so your AI assistant writes typed, accessible, and predictable components. The pieces are scoped to the directories they govern, so component conventions, hook rules, and accessibility requirements land where the code actually lives.",
   "category": "Frontend",
   "icon": "component",
   "color": "bg-sky-500/10 text-sky-600 dark:bg-sky-400/15 dark:text-sky-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "React and TypeScript patterns for AI coding agents",
-  "metaDescription": "A ready-to-use Pathrule pattern for React with TypeScript: typed props without any, accessible interactive elements, hook discipline, and a component review skill.",
+  "metaTitle": "React and TypeScript pattern for AI agents",
+  "metaDescription": "React pattern for AI coding agents: typed component props, no data fetching or derived state in effects, accessible controls, and React Compiler memoization.",
   "problem": "React and TypeScript components drift into any-typed props, inaccessible controls, and effect-driven data fetching.",
   "audience": "frontend teams writing React in TypeScript",
   "prevents": [

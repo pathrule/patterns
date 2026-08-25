@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const postgresSchema: Pattern = {
   "slug": "postgres-schema",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "PostgreSQL Schema & Migrations",
   "tagline": "Design normalized PostgreSQL schemas and ship lock-safe, forward-only migrations.",
   "description": "A pattern bundle that teaches AI agents how to model PostgreSQL tables with correct types and constraints, and how to evolve them without downtime. It enforces forward-only, expand-contract migrations, concurrent index builds, and validated constraints so schema changes never lock production traffic. Tuned for PostgreSQL 18 with native UUIDv7 and identity columns.",
@@ -10,16 +10,21 @@ export const postgresSchema: Pattern = {
   "icon": "table-properties",
   "color": "bg-sky-500/10 text-sky-600 dark:bg-sky-400/15 dark:text-sky-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "PostgreSQL Schema & Migrations pattern for AI coding agents",
-  "metaDescription": "Teach AI coding agents to design normalized PostgreSQL schemas with correct types and constraints, and ship lock-safe forward-only migrations on PostgreSQL 18.",
+  "metaTitle": "PostgreSQL schema pattern for AI agents",
+  "metaDescription": "PostgreSQL pattern for AI coding agents: forward-only migrations, lock-safe DDL on populated tables, expand-and-contract column changes, and deliberate indexes.",
   "problem": "AI agents write migrations that rename columns in place, build indexes that lock the table, and pick types that cause silent data and timezone bugs.",
   "audience": "Backend and platform teams running PostgreSQL in production",
   "prevents": [

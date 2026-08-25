@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const backgroundJobsQueues: Pattern = {
   "slug": "background-jobs-queues",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Background Jobs & Queues",
   "tagline": "Make every queued job safe to run twice so retries heal instead of corrupt.",
   "description": "Queue-backed work is delivered at-least-once, which means every job can and eventually will run more than once. This pattern bundles the rules, memories, and review checklist that keep your workers idempotent, retried with backoff and jitter, drained on dead-letter queues you actually watch, and enqueued atomically with the data they describe.",
@@ -10,16 +10,21 @@ export const backgroundJobsQueues: Pattern = {
   "icon": "list-todo",
   "color": "bg-fuchsia-500/10 text-fuchsia-600 dark:bg-fuchsia-400/15 dark:text-fuchsia-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Background Jobs & Queues pattern for AI coding agents",
-  "metaDescription": "Teach your AI coding agent to write idempotent jobs, exponential backoff with jitter, dead-letter queues, and atomic enqueue via the transactional outbox.",
+  "metaTitle": "Background job queue pattern for AI agents",
+  "metaDescription": "Queue pattern for AI coding agents: idempotent job handlers, retries bounded with jittered backoff, a monitored dead letter queue, and transactional enqueues.",
   "problem": "Queues deliver at-least-once, so naive jobs run twice and corrupt data, retry storms hammer dependencies, and failed jobs vanish silently.",
   "audience": "Backend and platform teams running Node.js queue workers (BullMQ, SQS, RabbitMQ) behind an API or event stream.",
   "prevents": [

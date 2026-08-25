@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const codeReview: Pattern = {
   "slug": "code-review",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Code Review",
   "tagline": "Ship small pull requests that reviewers can approve fast with confidence.",
   "description": "A workflow bundle that keeps code review focused on correctness, security, and maintainability instead of style nits. It encodes small-PR discipline, an author self-check before requesting review, structured reviewer feedback, and a fast turnaround norm so changes merge in hours, not days.",
@@ -10,16 +10,21 @@ export const codeReview: Pattern = {
   "icon": "git-pull-request",
   "color": "bg-green-500/10 text-green-600 dark:bg-green-400/15 dark:text-green-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Code Review pattern for AI coding agents | Pathrule",
-  "metaDescription": "A Pathrule workflow pattern that teaches AI coding agents to ship small PRs, self-check before review, give specific feedback, and keep turnaround fast.",
+  "metaTitle": "Code review pattern for AI coding agents",
+  "metaDescription": "Code review pattern for AI coding agents: small single-purpose pull requests, review for correctness and security, and leave style to automated tooling.",
   "problem": "Pull requests pile up because they are too large, mix unrelated changes, and trigger slow rounds of vague review feedback.",
   "audience": "Engineering teams using PR-based GitHub or GitLab workflows with human and AI reviewers",
   "prevents": [

@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const flutter: Pattern = {
   "slug": "flutter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Flutter",
   "tagline": "Build Flutter apps that stay fast and leak-free with disciplined widgets and clear state boundaries.",
   "description": "A baseline for building maintainable Flutter apps in Dart 3. It keeps the widget tree cheap to rebuild with const constructors and small widgets, keeps business logic out of build(), disposes every controller and subscription so screens don't leak, and organizes state and navigation around Riverpod and go_router. These are the conventions that keep a Flutter codebase smooth at 60/120fps and readable as features pile up.",
@@ -10,16 +10,21 @@ export const flutter: Pattern = {
   "icon": "smartphone",
   "color": "bg-sky-500/10 text-sky-600 dark:bg-sky-400/15 dark:text-sky-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Flutter pattern for AI coding agents",
-  "metaDescription": "Pathrule pattern for Flutter and Dart 3: const constructors and small widgets, logic out of build(), disposing controllers and subscriptions, plus Riverpod state and go_router navigation, tuned for AI coding agents.",
+  "metaTitle": "Flutter state and widget pattern for AI agents",
+  "metaDescription": "Flutter pattern for AI coding agents: dispose every controller and stream, keep build pure with const widgets, and hold app state in Riverpod providers.",
   "problem": "AI agents writing Flutter pile logic into build(), skip const, never dispose controllers, and scatter setState everywhere, producing janky, leaky, hard-to-test screens.",
   "audience": "Mobile teams building cross-platform apps with Flutter and Dart",
   "prevents": [

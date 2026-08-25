@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const redisCaching: Pattern = {
   "slug": "redis-caching",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Redis Caching",
   "tagline": "Cache with Redis so reads get faster without serving stale or inconsistent data.",
   "description": "A practical baseline for caching with Redis. The hard part of caching is never the read path; it is expiry, invalidation, and what happens under concurrency and partial failure. This pattern uses the cache-aside read path, gives every key a TTL, prevents the cache stampede that turns an expiry into a database outage, and picks an invalidation strategy that matches how fresh the data must be. It also says plainly what not to cache.",
@@ -10,16 +10,21 @@ export const redisCaching: Pattern = {
   "icon": "database",
   "color": "bg-red-500/10 text-red-600 dark:bg-red-400/15 dark:text-red-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Redis Caching pattern for AI coding agents",
-  "metaDescription": "Pathrule pattern for Redis caching: cache-aside reads, TTL on every key, stampede prevention, invalidation strategies, and what not to cache, tuned for AI coding agents.",
+  "metaTitle": "Redis caching pattern for AI coding agents",
+  "metaDescription": "Redis pattern for AI coding agents: a TTL on every key, stampede protection on hot keys, cache-aside reads, and an invalidation strategy matched to freshness.",
   "problem": "AI agents add a cache with no TTL, no stampede protection, and no invalidation plan, so reads get fast but data goes stale and an expiry wave can take the database down.",
   "audience": "Backend teams adding a Redis cache in front of a database or expensive computation",
   "prevents": [

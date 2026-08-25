@@ -2,24 +2,29 @@ import type { Pattern } from "../types.js";
 
 export const nuxt: Pattern = {
   "slug": "nuxt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Nuxt",
   "tagline": "Ship Nuxt 4 apps with correct data fetching, server routes, and SSR-safe code.",
-  "description": "An opinionated bundle for Nuxt 4 on Vue 3 that keeps agents on the current API surface. It covers when to use useFetch, useAsyncData, and $fetch, how to write Nitro server routes, and how to keep secrets and client-only code out of the universal render.",
+  "description": "An opinionated bundle for Nuxt 4 on Vue 3 that keeps agents on the current API surface. It covers when to use useFetch, useAsyncData, and $fetch, how to write Nitro server routes, and how to keep secrets and client-only code out of the universal render. Each piece lands on the directory it governs, so the rules about server routes never leak into component code.",
   "category": "Framework",
   "icon": "hexagon",
   "color": "bg-green-500/10 text-green-600 dark:bg-green-400/15 dark:text-green-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Nuxt 4 AI Coding Pattern: Data Fetching and SSR Rules",
-  "metaDescription": "Pathrule pattern for Nuxt 4 and Vue 3. Teaches AI agents correct useFetch and useAsyncData usage, Nitro server routes, runtimeConfig secrets, and SSR-safe code.",
+  "metaTitle": "Nuxt 4 data fetching pattern for AI agents",
+  "metaDescription": "Nuxt 4 pattern for AI coding agents: useFetch and useAsyncData over raw $fetch, Nitro event handlers, runtimeConfig secrets, and SSR-safe component code.",
   "problem": "AI agents reach for stale Nuxt 2 and 3 habits, misuse the data-fetching composables, and leak secrets or break hydration in the universal render.",
   "audience": "Teams building full-stack Nuxt 4 apps on Vue 3 with Nitro",
   "prevents": [

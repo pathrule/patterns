@@ -42,7 +42,9 @@ const SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const ICON_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const SEMVER_RE = /^\d+\.\d+\.\d+$/;
-const BANNED_TEXT = /\b(TODO|TBD|FIXME|lorem ipsum|placeholder text)\b/i;
+// NB: not "placeholder text" — accessibility content legitimately says
+// "Placeholder text is not a label".
+const BANNED_TEXT = /\b(TODO|TBD|FIXME|lorem ipsum)\b/i;
 // Em dash, en dash, and the invisible characters that leak in from LLM output.
 const BANNED_CHARS = /[—–​‌‍⁠﻿ ]/;
 
@@ -204,12 +206,16 @@ function checkPattern(p) {
   if (total < 2) err(p.slug, "a bundle needs at least 2 pieces");
   if (total > 9) warn(p.slug, `${total} pieces; over 9 usually means two patterns`);
 
+  // Root-heavy is a smell, not a defect: some topics genuinely govern the repo
+  // root (Dockerfile, pyproject.toml, .env, lockfiles, CI config), so this is a
+  // warning to re-check the scoping rather than a blocking failure. The hard
+  // rule is below: a bundle that lands on a single path has no scoping at all.
   const nonRootKnowledge = p.pieces.filter((x) => x.kind !== "skill" && x.nodePath !== "/").length;
   const knowledge = c.memory + c.rule;
   if (knowledge > 0 && nonRootKnowledge / knowledge < 0.6)
-    err(
+    warn(
       p.slug,
-      `${knowledge - nonRootKnowledge}/${knowledge} memories+rules sit at "/"; scope them to the paths they govern`,
+      `${knowledge - nonRootKnowledge}/${knowledge} memories+rules sit at "/"; confirm the topic really governs the repo root`,
     );
   const paths = new Set(p.pieces.map((x) => x.nodePath));
   if (paths.size < 2) err(p.slug, "every piece targets one path; real bundles land on 2+ paths");

@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const formsRhfZod: Pattern = {
   "slug": "forms-rhf-zod",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Forms with React Hook Form + Zod",
   "tagline": "Schema-first, type-safe forms with shared client and server validation.",
   "description": "A pattern for building forms with React Hook Form and a Zod resolver where one schema is the single source of truth for types, client validation, and server validation. It keeps inputs uncontrolled for performance, infers TypeScript types directly from the schema, and reuses the same schema in Server Actions or API routes so client and server never drift. Built for Zod 4 and React Hook Form 7.",
@@ -10,16 +10,21 @@ export const formsRhfZod: Pattern = {
   "icon": "clipboard-list",
   "color": "bg-violet-500/10 text-violet-600 dark:bg-violet-400/15 dark:text-violet-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Forms with React Hook Form + Zod — AI coding pattern",
-  "metaDescription": "A Pathrule pattern that teaches AI agents to build type-safe React Hook Form + Zod forms with one shared schema for client and server validation.",
+  "metaTitle": "React Hook Form and Zod pattern for agents",
+  "metaDescription": "Forms pattern for AI coding agents: one Zod schema drives the types, the resolver, and the server re-parse, so client and server validation cannot drift.",
   "problem": "Form types, client validation, and server validation drift apart and re-render the whole form on every keystroke.",
   "audience": "Frontend and full-stack teams building React or Next.js forms with TypeScript",
   "prevents": [

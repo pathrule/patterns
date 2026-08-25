@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const subscriptionsUsageBilling: Pattern = {
   "slug": "subscriptions-usage-billing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Subscriptions & Usage Billing",
   "tagline": "Ship metered subscriptions on Stripe Billing without dropping usage or double-charging customers.",
   "description": "A pattern bundle for subscription and usage-based billing on Stripe Billing in 2026. It covers Billing Meters and meter events, idempotent webhook handling, entitlement sync, proration on plan changes, and dunning for failed payments. Keep your own database as the source of truth for usage and entitlements, and treat Stripe events as a queue you reconcile against.",
@@ -10,16 +10,21 @@ export const subscriptionsUsageBilling: Pattern = {
   "icon": "gauge",
   "color": "bg-violet-500/10 text-violet-600 dark:bg-violet-400/15 dark:text-violet-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Subscriptions & Usage Billing pattern for AI coding agents",
-  "metaDescription": "A Pathrule pattern that teaches AI coding agents to build Stripe metered subscriptions correctly: meters, idempotent webhooks, entitlements, proration, and dunning.",
+  "metaTitle": "Usage-based billing pattern for AI agents",
+  "metaDescription": "Metered billing pattern for AI coding agents: idempotent meter events, deduplicated Stripe webhooks, and entitlements derived from subscription state alone.",
   "problem": "Usage-based subscription billing silently loses meter events, grants the wrong entitlements, and mis-charges on plan changes when webhooks and metering are handled ad hoc.",
   "audience": "SaaS and AI product teams running subscription plus usage-based billing on Stripe.",
   "prevents": [

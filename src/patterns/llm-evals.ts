@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const llmEvals: Pattern = {
   "slug": "llm-evals",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "LLM Evaluations & Testing",
   "tagline": "Catch hallucinations and quality regressions before users do, with evals on every prompt change.",
   "description": "The discipline that turns an LLM feature from a demo into something you can change with confidence. Hallucinations and inconsistent quality are the top reported problems with AI-generated work, and you cannot fix what you do not measure. This pattern builds a labelled evaluation set, scores outputs with deterministic checks plus a calibrated LLM-as-judge, and gates every prompt, model, or retrieval change on an eval run so a tweak that helps one case but breaks ten is caught in CI, not in production.",
@@ -10,16 +10,21 @@ export const llmEvals: Pattern = {
   "icon": "clipboard-check",
   "color": "bg-purple-500/10 text-purple-600 dark:bg-purple-400/15 dark:text-purple-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "LLM Evaluations & Testing pattern for AI coding agents",
-  "metaDescription": "Pathrule pattern for LLM evaluation and testing: a labelled eval set, deterministic checks plus a calibrated LLM-as-judge, grounding/hallucination checks, and gating prompt and model changes on an eval run, tuned for AI coding agents.",
+  "metaTitle": "LLM evaluation pattern for AI coding agents",
+  "metaDescription": "LLM eval pattern for AI coding agents: gate prompt and model changes on an eval run, build a labelled set from real usage, and score deterministically first.",
   "problem": "AI agents ship prompt and model changes on vibes, with no eval set, so hallucinations and quality regressions only surface once users hit them.",
   "audience": "Teams shipping LLM features that need to measure and defend output quality",
   "prevents": [

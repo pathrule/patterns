@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const testingVitestPlaywright: Pattern = {
   "slug": "testing-vitest-playwright",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Testing (Vitest + Playwright)",
   "tagline": "Unit test behavior with Vitest, drive real user flows with Playwright, and keep both green in CI.",
   "description": "A layered testing setup that splits fast unit and component tests in Vitest from end-to-end browser tests in Playwright. It pushes assertions toward observable behavior and role-based selectors so tests survive refactors, and it wires both suites into CI with coverage, retries, and trace artifacts.",
@@ -10,16 +10,21 @@ export const testingVitestPlaywright: Pattern = {
   "icon": "flask-conical",
   "color": "bg-lime-500/10 text-lime-600 dark:bg-lime-400/15 dark:text-lime-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Testing (Vitest + Playwright) pattern for AI coding agents",
-  "metaDescription": "A Pathrule pattern that teaches AI coding agents to write Vitest unit tests and Playwright e2e tests the right way: behavior over implementation, stable role-based selectors, and green CI.",
+  "metaTitle": "Vitest and Playwright pattern for AI agents",
+  "metaDescription": "Testing pattern for AI coding agents: select by role and accessible name, assert observable behavior, and replace fixed waits with auto-retrying assertions.",
   "problem": "AI-generated tests often assert on implementation details and brittle CSS selectors, so they break on every refactor while missing real user-facing regressions.",
   "audience": "Frontend and full-stack teams running Vitest for units and Playwright for end-to-end on a TypeScript codebase.",
   "prevents": [

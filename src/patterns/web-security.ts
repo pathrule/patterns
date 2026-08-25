@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const webSecurity: Pattern = {
   "slug": "web-security",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Web Security (OWASP)",
   "tagline": "Build web apps that deny by default, distrust every input, and ship secure headers.",
   "description": "A baseline against the risks at the top of the OWASP Top 10:2025. Broken Access Control is still the number one application security risk, and Security Misconfiguration and Injection sit right behind it. This pattern enforces server-side authorization on every request, treats all input as hostile, defends against XSS and CSRF, and ships a secure-by-default configuration with the right response headers. It is the app-security layer that sits above your authentication, not a replacement for it.",
@@ -10,16 +10,21 @@ export const webSecurity: Pattern = {
   "icon": "shield-check",
   "color": "bg-rose-500/10 text-rose-600 dark:bg-rose-400/15 dark:text-rose-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Web Security (OWASP) pattern for AI coding agents",
-  "metaDescription": "Pathrule pattern for OWASP web security: server-side deny-by-default access control, input validation against injection, XSS and CSRF defenses, and secure response headers, tuned for AI coding agents.",
+  "metaTitle": "OWASP web security pattern for AI agents",
+  "metaDescription": "Web security pattern for AI coding agents: server-side deny-by-default access control, parameterized queries, XSS and CSRF defenses, and secure headers.",
   "problem": "AI agents enforce access control in the UI, trust request input, build SQL by string concatenation, and ship apps with default configs and no security headers.",
   "audience": "Web teams hardening application security beyond authentication",
   "prevents": [

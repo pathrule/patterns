@@ -2,24 +2,29 @@ import type { Pattern } from "../types.js";
 
 export const gitConventionalCommits: Pattern = {
   "slug": "git-conventional-commits",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Git & Conventional Commits",
   "tagline": "Keep history readable and releases automatic with small commits and Conventional Commits.",
-  "description": "A workflow bundle that standardizes how AI agents and humans commit, branch, and open pull requests. It enforces the Conventional Commits v1.0.0 spec, short-lived branches off main, and small reviewable PRs so changelogs and version bumps can be generated automatically.",
+  "description": "A workflow bundle that standardizes how AI agents and humans commit, branch, and open pull requests. It enforces the Conventional Commits v1.0.0 spec, short-lived branches off main, and small reviewable PRs so changelogs and version bumps can be generated automatically. The rules are scoped so commit conventions, branch policy, and the release automation config each sit on the path that owns them.",
   "category": "Workflow",
   "icon": "git-commit-horizontal",
   "color": "bg-amber-500/10 text-amber-600 dark:bg-amber-400/15 dark:text-amber-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Git & Conventional Commits for AI coding agents",
-  "metaDescription": "Teach AI coding agents to write Conventional Commits, keep branches short-lived, and ship small reviewable PRs so changelogs and semantic versions stay automatic.",
+  "metaTitle": "Conventional Commits pattern for AI agents",
+  "metaDescription": "Git pattern for AI coding agents: Conventional Commits v1.0.0, short-lived branches with squash merges, and commitlint plus release-please automation.",
   "problem": "AI agents and humans write inconsistent commit messages and oversized PRs, breaking automated changelogs and making history impossible to review.",
   "audience": "Product teams on GitHub Flow or trunk-based development that automate releases from commit history.",
   "prevents": [

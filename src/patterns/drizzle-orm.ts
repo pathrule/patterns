@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const drizzleOrm: Pattern = {
   "slug": "drizzle-orm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Drizzle ORM",
   "tagline": "Keep your TypeScript schema, migrations, and typed queries honest with Drizzle.",
   "description": "Guardrails for teams using Drizzle ORM as their type-safe SQL layer. It keeps the TypeScript schema as the single source of truth, enforces a generate-then-migrate workflow with drizzle-kit, and steers queries toward inferred types, relations v2, and safe transactions. Use it to stop schema drift and silent N+1 patterns before they ship.",
@@ -10,16 +10,21 @@ export const drizzleOrm: Pattern = {
   "icon": "table-2",
   "color": "bg-lime-500/10 text-lime-600 dark:bg-lime-400/15 dark:text-lime-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Drizzle ORM pattern for AI coding agents | Pathrule",
-  "metaDescription": "A Pathrule pattern that teaches AI coding agents the correct 2026 Drizzle ORM workflow: TypeScript schema source of truth, drizzle-kit migrations, typed queries, relations, and transactions.",
+  "metaTitle": "Drizzle ORM pattern for AI coding agents",
+  "metaDescription": "Drizzle pattern for AI coding agents: the schema is the source of truth, generate then migrate instead of pushing, and query through relations and transactions.",
   "problem": "AI agents drift Drizzle schemas out of sync with the database and write untyped, N+1-prone queries.",
   "audience": "Backend and full-stack teams running Drizzle ORM on Postgres, MySQL, or SQLite.",
   "prevents": [
@@ -71,7 +76,7 @@ export const drizzleOrm: Pattern = {
       "nodePath": "/src/db",
       "title": "Drizzle versions and config baseline (2026)",
       "summary": "Current package versions, dialect-based config, and shared db-client conventions.",
-      "body": "Pin to the current Drizzle line and use the dialect-based config introduced in the 0.40+ releases.\n\n- Runtime is `drizzle-orm` and the CLI is `drizzle-kit`. The stable line as of mid-2026 is 0.4x; a v1.0.0 release is in progress — confirm the exact pinned version in `package.json` before relying on APIs documented only for v1.\n- `drizzle.config.ts` uses `dialect` (`\"postgresql\"`, `\"mysql\"`, or `\"sqlite\"`) plus `schema` and `out` paths; the older `driver` key is removed in the new config format.\n- Keep one shared `db` client instance per process. Pass the `db` (or a `tx`) into functions as a parameter rather than importing a singleton inside deeply nested modules, so transaction boundaries stay explicit.\n- For Postgres, create the client with `drizzle(pool, { schema })` where `pool` is a `node-postgres` Pool or `postgres` (postgres.js) instance. Passing the schema object enables the relational query API.\n\nSee /src/db for querying patterns and /src/db for relations v2 setup."
+      "body": "Pin to the current Drizzle line and use the dialect-based config introduced in the 0.40+ releases.\n\n- Runtime is `drizzle-orm` and the CLI is `drizzle-kit`. The stable line as of mid-2026 is 0.4x; a v1.0.0 release is in progress, so confirm the exact pinned version in `package.json` before relying on APIs documented only for v1.\n- `drizzle.config.ts` uses `dialect` (`\"postgresql\"`, `\"mysql\"`, or `\"sqlite\"`) plus `schema` and `out` paths; the older `driver` key is removed in the new config format.\n- Keep one shared `db` client instance per process. Pass the `db` (or a `tx`) into functions as a parameter rather than importing a singleton inside deeply nested modules, so transaction boundaries stay explicit.\n- For Postgres, create the client with `drizzle(pool, { schema })` where `pool` is a `node-postgres` Pool or `postgres` (postgres.js) instance. Passing the schema object enables the relational query API.\n\nSee /src/db for querying patterns and /src/db for relations v2 setup."
     },
     {
       "kind": "memory",

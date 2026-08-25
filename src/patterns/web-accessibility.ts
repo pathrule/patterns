@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const webAccessibility: Pattern = {
   "slug": "web-accessibility",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Web Accessibility",
   "tagline": "Ship interfaces that work for keyboard, screen reader, and low-vision users by default.",
   "description": "A WCAG 2.2 AA pattern for frontend teams that keeps accessibility correct without slowing delivery. It enforces a semantic-HTML-first approach, reserves ARIA for genuine custom widgets, and ships a review checklist so every component is keyboard operable, properly labeled, and visibly focusable before merge.",
@@ -10,16 +10,21 @@ export const webAccessibility: Pattern = {
   "icon": "accessibility",
   "color": "bg-blue-500/10 text-blue-600 dark:bg-blue-400/15 dark:text-blue-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Web Accessibility pattern for AI coding agents (WCAG 2.2)",
-  "metaDescription": "Teach your AI coding agent WCAG 2.2 AA: semantic HTML first, ARIA only when needed, keyboard support, visible focus, and a per-component review checklist.",
+  "metaTitle": "Web accessibility pattern for AI agents",
+  "metaDescription": "Accessibility pattern for AI coding agents: native HTML before ARIA, keyboard operability with visible focus, real accessible names, and labelled form errors.",
   "problem": "Agents reach for ARIA and div soup instead of native elements, shipping components that fail keyboard, focus, and screen-reader users.",
   "audience": "Frontend and product teams building React, Next.js, or component-library UIs to WCAG 2.2 AA.",
   "prevents": [

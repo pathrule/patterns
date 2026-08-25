@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const supplyChainSecurity: Pattern = {
   "slug": "supply-chain-security",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Software Supply Chain Security",
   "tagline": "Stop a poisoned dependency from running in your build, CI, and production.",
   "description": "A defense baseline against the supply chain attacks that hit the npm ecosystem hard in 2025 and 2026. Software Supply Chain Failures entered the OWASP Top 10 at A03:2025 because most of these compromises run through a dependency's install script before anyone reads the code. This pattern commits the lockfile and installs from it, neutralizes lifecycle scripts, adds a publish cooldown so freshly-compromised versions are never pulled, and treats every dependency change as a reviewed event with provenance.",
@@ -10,16 +10,21 @@ export const supplyChainSecurity: Pattern = {
   "icon": "package-check",
   "color": "bg-amber-500/10 text-amber-600 dark:bg-amber-400/15 dark:text-amber-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Software Supply Chain Security pattern for AI coding agents",
-  "metaDescription": "Pathrule pattern for software supply chain security: commit the lockfile and install frozen, disable dependency install scripts, add a publish cooldown, pin and review dependencies with provenance, tuned for AI coding agents.",
+  "metaTitle": "Supply chain security pattern for AI agents",
+  "metaDescription": "Supply chain pattern for AI coding agents: frozen lockfile installs, lifecycle scripts disabled, a publish cooldown on new versions, and provenance in CI.",
   "problem": "AI agents run npm install in CI, leave install scripts enabled, and add freshly-published dependencies, exactly the path recent supply chain attacks use to execute code.",
   "audience": "Teams hardening their dependency pipeline against supply chain compromise",
   "prevents": [

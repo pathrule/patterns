@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const reactRouter: Pattern = {
   "slug": "react-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "React Router 7",
   "tagline": "Build full-stack React apps with framework mode loaders, actions, and generated route types.",
   "description": "React Router 7 merges Remix into a single multi-strategy router with a full framework mode for SSR, data loading, and mutations. This pattern keeps your data flow on loaders and actions, your routes type-safe through codegen, and your navigation fast with single-fetch and prefetching. It is tuned for the 7.17+ API surface and the framework-mode conventions teams ship in 2026.",
@@ -10,8 +10,13 @@ export const reactRouter: Pattern = {
   "icon": "route",
   "color": "bg-pink-500/10 text-pink-600 dark:bg-pink-400/15 dark:text-pink-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
@@ -34,11 +39,11 @@ export const reactRouter: Pattern = {
       "/src"
     ],
     "stacks": [
-      "React",
-      "React Router 7",
-      "TypeScript",
-      "Vite",
-      "SSR"
+      "react",
+      "react-router",
+      "typescript",
+      "vite",
+      "ssr"
     ],
     "packages": [
       "react-router",

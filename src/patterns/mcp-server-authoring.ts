@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const mcpServerAuthoring: Pattern = {
   "slug": "mcp-server-authoring",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "MCP Server Authoring",
   "tagline": "Build Model Context Protocol servers whose tools an LLM can actually call correctly and safely.",
   "description": "A focused standard for authoring Model Context Protocol servers. An MCP tool is an API consumed by a language model, so its description and input schema are not documentation - they are the contract the model reasons over. This pattern covers writing tools the model calls correctly, keeping side effects honest and destructive actions gated, and choosing transport and auth: stdio for local servers, streamable HTTP with bearer/OAuth for remote ones.",
@@ -10,16 +10,21 @@ export const mcpServerAuthoring: Pattern = {
   "icon": "plug-zap",
   "color": "bg-indigo-500/10 text-indigo-600 dark:bg-indigo-400/15 dark:text-indigo-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "MCP Server Authoring pattern for AI coding agents",
-  "metaDescription": "Pathrule pattern for authoring Model Context Protocol (MCP) servers: tool descriptions and schemas as the LLM contract, side-effect-honest and gated destructive tools, and stdio vs streamable HTTP transport with auth, tuned for AI coding agents.",
+  "metaTitle": "MCP server pattern for AI coding agents",
+  "metaDescription": "MCP pattern for AI coding agents: treat tool descriptions and schemas as the model-facing contract, gate destructive actions, and pick the right transport.",
   "problem": "AI agents building MCP servers write vague tool descriptions, skip input schemas, let destructive tools fire without confirmation, and expose remote servers with no auth.",
   "audience": "Developers building MCP servers and tools for Claude, Cursor, and other MCP clients",
   "prevents": [

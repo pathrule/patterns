@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const vercelDeploy: Pattern = {
   "slug": "vercel-deploy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Vercel Deployment",
   "tagline": "Ship to Vercel with safe previews, scoped env vars, and instant rollbacks.",
   "description": "An opinionated bundle for teams deploying Next.js and other apps on Vercel in 2026. It codifies the preview-then-promote workflow, per-environment secrets with OIDC and Sensitive variables, Fluid Compute function config, and CDN-aware caching so deploys stay fast, safe, and reversible.",
@@ -10,16 +10,21 @@ export const vercelDeploy: Pattern = {
   "icon": "triangle",
   "color": "bg-neutral-500/10 text-neutral-700 dark:bg-neutral-400/15 dark:text-neutral-300",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Vercel Deployment pattern for AI coding agents",
-  "metaDescription": "A Pathrule pattern that teaches AI coding agents the 2026 Vercel workflow: preview-then-promote, scoped env vars with OIDC, Fluid Compute, ISR caching, and instant rollbacks.",
+  "metaTitle": "Vercel deployment pattern for AI agents",
+  "metaDescription": "Vercel pattern for AI coding agents: preview before promoting, scope environment variables per environment, configure Fluid Compute, and cache on the CDN.",
   "problem": "Teams break production on Vercel by pushing untested changes, leaking secrets into client bundles, and misconfiguring functions and caching.",
   "audience": "Frontend and full-stack teams deploying Next.js apps on Vercel",
   "prevents": [

@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const sveltekit: Pattern = {
   "slug": "sveltekit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "SvelteKit",
   "tagline": "Keep server secrets, load data, and mutations correct across SvelteKit 2 and Svelte 5.",
   "description": "A pattern bundle for SvelteKit 2 apps built on Svelte 5 runes. It encodes where data loading belongs, how to keep secrets server-side, and how form actions and remote functions stay type-safe and progressively enhanced. Use it so AI agents stop leaking private values into the client bundle and stop reaching for stores when runes are the right tool.",
@@ -10,16 +10,21 @@ export const sveltekit: Pattern = {
   "icon": "flame",
   "color": "bg-red-500/10 text-red-600 dark:bg-red-400/15 dark:text-red-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "SvelteKit pattern for AI coding agents | Pathrule",
-  "metaDescription": "Pathrule rules, memories, and a review skill that keep AI coding agents correct on SvelteKit 2 and Svelte 5 runes: load functions, form actions, secrets, and remote functions.",
+  "metaTitle": "SvelteKit and Svelte 5 pattern for AI agents",
+  "metaDescription": "SvelteKit 2 pattern for AI coding agents: server-only data in page.server files, mutations through form actions, and Svelte 5 runes in place of stores.",
   "problem": "AI agents leak private values into the client bundle and pick the wrong data-loading or reactivity primitive in SvelteKit.",
   "audience": "Teams shipping full-stack apps on SvelteKit 2 with Svelte 5",
   "prevents": [
@@ -54,7 +59,10 @@ export const sveltekit: Pattern = {
       "nodePath": "/src/routes",
       "title": "Server-only data and secrets live in +page.server.ts",
       "summary": "Put auth, DB access, and private env in server load; keep universal load for public, serializable data.",
-      "body": "Any data that needs secrets, cookies, a database, or private APIs belongs in a server load function, not a universal one.\n\n- Use `+page.server.ts` / `+layout.server.ts` for `load` that touches `$env/static/private`, `$env/dynamic/private`, `cookies`, or `locals`.\n- Reserve `+page.ts` / `+layout.ts` (universal) for public external APIs and non-serializable returns like component constructors.\n- Never import anything from `$lib/server`, a `*.server.ts` module, or a `$env/.../private` module into universal load or any client-reachable code. SvelteKit treats the whole import chain as unsafe and Vite refuses to build it; that build error is the signal the logic is in the wrong file, not something to work around.\n- When both load functions exist on a route, the server load runs first and its result reaches the universal load via the `data` property. Universal output cannot flow back to the server.\n- Server load runs only on the server. Universal load runs on the server during SSR, then again in the browser on hydration and on client-side navigation, so it must never assume a server-only global is present."
+      "body": "Any data that needs secrets, cookies, a database, or private APIs belongs in a server load function, not a universal one.\n\n- Use `+page.server.ts` / `+layout.server.ts` for `load` that touches `$env/static/private`, `$env/dynamic/private`, `cookies`, or `locals`.\n- Reserve `+page.ts` / `+layout.ts` (universal) for public external APIs and non-serializable returns like component constructors.\n- Never import anything from `$lib/server`, a `*.server.ts` module, or a `$env/.../private` module into universal load or any client-reachable code. SvelteKit treats the whole import chain as unsafe and Vite refuses to build it; that build error is the signal the logic is in the wrong file, not something to work around.\n- When both load functions exist on a route, the server load runs first and its result reaches the universal load via the `data` property. Universal output cannot flow back to the server.\n- Server load runs only on the server. Universal load runs on the server during SSR, then again in the browser on hydration and on client-side navigation, so it must never assume a server-only global is present.",
+      "scopeType": "folder",
+      "priority": "high",
+      "enforcement": "strict"
     },
     {
       "kind": "rule",

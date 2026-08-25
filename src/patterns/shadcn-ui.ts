@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const shadcnUi: Pattern = {
   "slug": "shadcn-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "shadcn/ui",
   "tagline": "Own your component code and theme it with CSS variables instead of installing a black-box UI library.",
   "description": "shadcn/ui is a code distribution system that copies accessible, Tailwind-styled React components straight into your repo via a CLI and registries, so you own and edit every line. This pattern keeps your team aligned on theming through CSS variables, safe component composition, and the CLI and registry workflow. It encodes the current 2026 conventions: Tailwind v4, the unified Radix UI package, namespaced registries, and the shadcn MCP server.",
@@ -10,16 +10,21 @@ export const shadcnUi: Pattern = {
   "icon": "blocks",
   "color": "bg-zinc-500/10 text-zinc-700 dark:bg-zinc-400/15 dark:text-zinc-300",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "shadcn/ui pattern for AI coding agents | Pathrule",
-  "metaDescription": "Teach your AI agent the right shadcn/ui workflow: CSS-variable theming, component composition, the shadcn CLI v4, and namespaced registries for Tailwind v4 projects.",
+  "metaTitle": "shadcn/ui and Tailwind pattern for AI agents",
+  "metaDescription": "shadcn/ui pattern for AI coding agents: own the registry code in components/ui, theme only through semantic CSS variables, and survive the Tailwind v4 setup.",
   "problem": "AI agents treat shadcn/ui like an npm package, hand-editing generated primitives and hardcoding colors instead of theming through CSS variables.",
   "audience": "React and Next.js teams using shadcn/ui with Tailwind v4",
   "prevents": [

@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const fastapi: Pattern = {
   "slug": "fastapi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "FastAPI (Python)",
   "tagline": "Build type-safe async Python APIs with Pydantic validation and dependency injection.",
   "description": "An opinionated baseline for shipping FastAPI services on Python 3.12+. It keeps request and response bodies behind Pydantic v2 models, runs I/O routes as async without blocking the event loop, wires auth, database sessions, and configuration through dependency injection instead of globals, and manages schema changes with forward-only Alembic migrations. These are the conventions that keep a FastAPI app fast, typed, and testable as it grows past the tutorial.",
@@ -10,16 +10,21 @@ export const fastapi: Pattern = {
   "icon": "rocket",
   "color": "bg-teal-500/10 text-teal-600 dark:bg-teal-400/15 dark:text-teal-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "FastAPI (Python) pattern for AI coding agents",
-  "metaDescription": "Pathrule pattern for FastAPI on Python 3.12+: Pydantic v2 request/response models, non-blocking async routes, dependency injection for auth and DB sessions, and forward-only Alembic migrations, tuned for AI coding agents.",
+  "metaTitle": "FastAPI and Pydantic pattern for AI agents",
+  "metaDescription": "FastAPI pattern for AI coding agents: Pydantic models on every request and response, nothing blocking inside async routes, and forward-only Alembic migrations.",
   "problem": "AI agents writing FastAPI accept untyped dict bodies, run blocking calls inside async routes, reach for module globals instead of dependencies, and edit the schema without a migration.",
   "audience": "Python teams building and maintaining FastAPI services",
   "prevents": [

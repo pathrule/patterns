@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const authSessionsJwtOauth: Pattern = {
   "slug": "auth-sessions-jwt-oauth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Auth (Sessions, JWT, OAuth)",
   "tagline": "Build authentication that resists XSS, CSRF, and token replay by default.",
   "description": "A backend auth pattern covering the decisions agents get wrong: when to use server sessions versus JWTs, how to store tokens safely in httpOnly cookies, and how to wire OAuth/OIDC with PKCE. It encodes 2026 OWASP guidance on Argon2id password hashing, refresh token rotation, and CSRF defense so generated auth code is secure on the first pass.",
@@ -10,16 +10,21 @@ export const authSessionsJwtOauth: Pattern = {
   "icon": "key-round",
   "color": "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "Auth (Sessions, JWT, OAuth) pattern for AI coding agents",
-  "metaDescription": "A Pathrule pattern that teaches AI coding agents secure auth: session vs JWT tradeoffs, httpOnly cookies, OAuth/OIDC with PKCE, Argon2id hashing, CSRF, and token rotation.",
+  "metaTitle": "Auth sessions and JWT pattern for AI agents",
+  "metaDescription": "Auth pattern for AI coding agents: keep tokens out of localStorage, prefer server sessions, hash with Argon2id, and protect cookie auth against CSRF and replay.",
   "problem": "AI agents reach for localStorage JWTs, weak password hashing, and missing CSRF defenses, shipping auth that breaks under XSS and token replay.",
   "audience": "Backend and full-stack teams building Node, TypeScript, or Python services that own login, sessions, and OAuth flows.",
   "prevents": [
@@ -54,7 +59,7 @@ export const authSessionsJwtOauth: Pattern = {
       "nodePath": "/src/auth",
       "title": "Never store auth tokens in localStorage",
       "summary": "Session and refresh tokens must live in httpOnly cookies; never in web storage or non-httpOnly cookies.",
-      "body": "Any token that authenticates a request must be set as an httpOnly cookie so JavaScript cannot read it and XSS cannot exfiltrate it.\n\n- Set the session or refresh cookie with `httpOnly`, `secure`, `sameSite: 'lax'` (or `strict` for high-value actions), and the `__Host-` name prefix.\n- Never write access tokens, refresh tokens, or session IDs to `localStorage`, `sessionStorage`, or non-httpOnly cookies.\n- Keep access tokens short-lived (15 to 60 minutes) and refresh tokens long-lived (7 to 14 days) so a stolen access token expires quickly.\n- If a short-lived access token must reach the browser for direct API calls, hold it in memory only — never in persistent storage.",
+      "body": "Any token that authenticates a request must be set as an httpOnly cookie so JavaScript cannot read it and XSS cannot exfiltrate it.\n\n- Set the session or refresh cookie with `httpOnly`, `secure`, `sameSite: 'lax'` (or `strict` for high-value actions), and the `__Host-` name prefix.\n- Never write access tokens, refresh tokens, or session IDs to `localStorage`, `sessionStorage`, or non-httpOnly cookies.\n- Keep access tokens short-lived (15 to 60 minutes) and refresh tokens long-lived (7 to 14 days) so a stolen access token expires quickly.\n- If a short-lived access token must reach the browser for direct API calls, hold it in memory only, never in persistent storage.",
       "scopeType": "folder",
       "priority": "high",
       "enforcement": "strict"

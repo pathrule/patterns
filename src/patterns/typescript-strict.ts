@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const typescriptStrict: Pattern = {
   "slug": "typescript-strict",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "TypeScript Strict",
   "tagline": "Make the compiler do the work: no any, no escape hatches, types that model reality.",
   "description": "A type-safety baseline for any TypeScript codebase. TypeScript only protects you as far as you let it, and the most impactful conventions are about not opting out: strict mode on, no any, no unchecked casts, and types that make illegal states unrepresentable. This pattern turns on the full strict surface, bans the escape hatches, models variant data with discriminated unions, and validates untrusted input at the boundary so the types inside the program are actually true.",
@@ -10,16 +10,21 @@ export const typescriptStrict: Pattern = {
   "icon": "component",
   "color": "bg-blue-500/10 text-blue-600 dark:bg-blue-400/15 dark:text-blue-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "TypeScript Strict pattern for AI coding agents",
-  "metaDescription": "Pathrule pattern for strict TypeScript: full strict mode, no any or unchecked casts, discriminated unions for variant state, and validating untrusted input at the boundary, tuned for AI coding agents.",
+  "metaTitle": "TypeScript strict mode pattern for AI agents",
+  "metaDescription": "TypeScript pattern for AI coding agents: full strict mode, no any or escape hatches, discriminated unions for variant state, and validation at every boundary.",
   "problem": "AI agents reach for any, as casts, and non-null assertions to make the compiler quiet, which throws away the exact type safety TypeScript exists to provide.",
   "audience": "Teams that want their TypeScript to actually catch bugs at compile time",
   "prevents": [
@@ -34,7 +39,10 @@ export const typescriptStrict: Pattern = {
       "/tsconfig.json"
     ],
     "stacks": [
-      "typescript"
+      "typescript",
+      "types",
+      "node",
+      "strict-mode"
     ],
     "packages": [
       "typescript",

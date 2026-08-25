@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const aiSdk: Pattern = {
   "slug": "ai-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "AI SDK (Vercel AI SDK)",
   "tagline": "Build streaming, tool-calling LLM features with one typed API across every provider.",
   "description": "A production baseline for shipping LLM features with the Vercel AI SDK v5+. It keeps model calls on the server, streams every user-facing response, validates tool inputs and structured output with Zod, and routes models through the AI Gateway as plain `provider/model` strings so you can swap or fall back without rewriting code. The conventions here are what separate a demo chat box from an agent loop you can ship.",
@@ -10,16 +10,21 @@ export const aiSdk: Pattern = {
   "icon": "bot",
   "color": "bg-violet-500/10 text-violet-600 dark:bg-violet-400/15 dark:text-violet-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "AI SDK (Vercel AI SDK) pattern for AI coding agents",
-  "metaDescription": "Pathrule pattern for the Vercel AI SDK: server-only model calls, streamed responses, Zod-validated tools and structured output, agent loops with stopWhen, and AI Gateway provider routing, tuned for AI coding agents.",
+  "metaTitle": "Vercel AI SDK pattern for AI coding agents",
+  "metaDescription": "AI SDK pattern for AI coding agents: keep provider keys server-side, stream responses, schema-validate tool inputs, and bound the agent loop with stopWhen.",
   "problem": "AI agents wiring up the AI SDK leak provider keys to the browser, block on full generations, pass unvalidated tool arguments, and hardcode one provider.",
   "audience": "Full-stack teams shipping LLM chat, agents, and structured extraction in a TypeScript app",
   "prevents": [

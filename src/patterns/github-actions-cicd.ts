@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const githubActionsCicd: Pattern = {
   "slug": "github-actions-cicd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "GitHub Actions CI/CD",
   "tagline": "Build hardened, fast, OIDC-deployed GitHub Actions pipelines that AI agents keep secure by default.",
   "description": "A bundle of rules, memories, and a review skill that lock GitHub Actions workflows to least-privilege tokens, SHA-pinned actions, and keyless OIDC deploys. It encodes the current 2026 stack (checkout@v6, setup-node@v6, cache@v5) so coding agents stop reintroducing long-lived secrets and over-broad permissions. Use it to keep CI fast with caching and matrix builds while staying audit-clean.",
@@ -10,16 +10,21 @@ export const githubActionsCicd: Pattern = {
   "icon": "workflow",
   "color": "bg-slate-500/10 text-slate-700 dark:bg-slate-400/15 dark:text-slate-300",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "GitHub Actions CI/CD pattern for AI coding agents",
-  "metaDescription": "Keep AI coding agents shipping secure, fast GitHub Actions pipelines: least-privilege tokens, SHA-pinned actions, OIDC deploys, caching, and matrix builds for 2026.",
+  "metaTitle": "GitHub Actions CI/CD pattern for AI agents",
+  "metaDescription": "GitHub Actions pattern for AI coding agents: least-privilege GITHUB_TOKEN, every action pinned to a commit SHA, and cloud deploys authenticated through OIDC.",
   "problem": "AI agents and busy teams keep shipping GitHub Actions workflows with write-all tokens, mutable action tags, and long-lived cloud secrets that fail security review.",
   "audience": "Platform and application teams running GitHub Actions CI/CD who let AI agents edit workflow files",
   "prevents": [

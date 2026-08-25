@@ -2,7 +2,7 @@ import type { Pattern } from "../types.js";
 
 export const ragEmbeddings: Pattern = {
   "slug": "rag-embeddings",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "RAG & Embeddings",
   "tagline": "Ground LLM answers in your own data with retrieval that returns the right chunks, not just similar ones.",
   "description": "A pragmatic baseline for retrieval-augmented generation: how to chunk documents so retrieval has something to find, how to store and index embeddings in pgvector, how to filter by metadata and a similarity floor instead of dumping a raw top-k into the prompt, and when a re-ranking pass is worth its latency. Retrieval quality, not the model, is what makes or breaks a RAG feature, and most of that quality is decided before the LLM is ever called.",
@@ -10,16 +10,21 @@ export const ragEmbeddings: Pattern = {
   "icon": "library",
   "color": "bg-cyan-500/10 text-cyan-600 dark:bg-cyan-400/15 dark:text-cyan-400",
   "installs": 0,
-  "updatedAt": "2026-06-09",
+  "updatedAt": "2026-08-25",
   "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-08-25",
+      "note": "Rewrote the page title and description so the site stops substituting generic metadata."
+    },
     {
       "version": "1.0.0",
       "date": "2026-06-09",
       "note": "First release."
     }
   ],
-  "metaTitle": "RAG & Embeddings pattern for AI coding agents",
-  "metaDescription": "Pathrule pattern for retrieval-augmented generation: semantic chunking with overlap, pgvector + HNSW storage, metadata-filtered retrieval with a similarity threshold, re-ranking, and pinned embedding models, tuned for AI coding agents.",
+  "metaTitle": "RAG and embeddings pattern for AI agents",
+  "metaDescription": "RAG pattern for AI coding agents: chunk on semantic boundaries, filter retrieval by metadata and a similarity floor, and pin the embedding model and dimension.",
   "problem": "AI agents building RAG embed whole documents, dump a blind top-k into the prompt, and silently change the embedding model, producing irrelevant context and answers that quietly degrade.",
   "audience": "Teams adding retrieval over their own documents to an LLM application",
   "prevents": [
